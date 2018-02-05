@@ -1,3 +1,52 @@
 <resources>
     <string name="app_name">QuizMaster</string>
+    <string-array name="question_list">
+        <item>Question 1</item>
+        <item>Question 2</item>
+        <item>Question 3</item>
+        <item>Question 4</item>
+        <item>Question 5</item>
+    </string-array>
+
+    <string-array name="question1">
+        <item>Choice 1</item>
+        <item>Choice 2</item>
+        <item>Choice 3</item>
+        <item>Choice 4</item>
+        <item>Choice 5</item>
+    </string-array>
+
+    <string-array name="question2">
+        <item>Choice 1</item>
+        <item>Choice 2</item>
+        <item>Choice 3</item>
+        <item>Choice 4</item>
+        <item>Choice 5</item>
+    </string-array>
+
+    <string-array name="question3">
+        <item>Choice 1</item>
+        <item>Choice 2</item>
+        <item>Choice 3</item>
+        <item>Choice 4</item>
+        <item>Choice 5</item>
+    </string-array>
+
+    <string-array name="question4">
+        <item>Choice 1</item>
+        <item>Choice 2</item>
+        <item>Choice 3</item>
+        <item>Choice 4</item>git remote add origin git@gitlab.oit.duke.edu:bwx/QuizMaster.git
+        <item>Choice 5</item>
+    </string-array>
+
+    <string-array name="question5">
+        <item>Choice 1</item>
+        <item>Choice 2</item>
+        <item>Choice 3</item>
+        <item>Choice 4</item>
+        <item>Choice 5</item>
+    </string-array>
+
+
 </resources>
