@@ -7,45 +7,52 @@
         <item>Question 4</item>
         <item>Question 5</item>
     </string-array>
-
-    <string-array name="question1">
-        <item>Choice 1</item>
-        <item>Choice 2</item>
-        <item>Choice 3</item>
-        <item>Choice 4</item>
-        <item>Choice 5</item>
+    <string-array name="answers_list">
+        <item>Answer 1</item>
+        <item>Answer 2</item>
+        <item>Answer 3</item>
+        <item>Answer 4</item>
+        <item>Answer 5</item>
     </string-array>
 
-    <string-array name="question2">
-        <item>Choice 1</item>
-        <item>Choice 2</item>
-        <item>Choice 3</item>
-        <item>Choice 4</item>
-        <item>Choice 5</item>
+    <string-array name="choice1">
+        <item>Question 1 Choice 1</item>
+        <item>Question 2 Choice 1</item>
+        <item>Question 3 Choice 1</item>
+        <item>Question 4 Choice 1</item>
+        <item>Question 5 Choice 1</item>
     </string-array>
 
-    <string-array name="question3">
-        <item>Choice 1</item>
-        <item>Choice 2</item>
-        <item>Choice 3</item>
-        <item>Choice 4</item>
-        <item>Choice 5</item>
+    <string-array name="choice2">
+        <item>Question 1 Choice 2</item>
+        <item>Question 2 Choice 2</item>
+        <item>Question 3 Choice 2</item>
+        <item>Question 4 Choice 2</item>
+        <item>Question 5 Choice 2</item>
     </string-array>
 
-    <string-array name="question4">
-        <item>Choice 1</item>
-        <item>Choice 2</item>
-        <item>Choice 3</item>
-        <item>Choice 4</item>
-        <item>Choice 5</item>
+    <string-array name="choice3">
+        <item>Question 1 Choice 3</item>
+        <item>Question 2 Choice 3</item>
+        <item>Question 3 Choice 3</item>
+        <item>Question 4 Choice 3</item>
+        <item>Question 5 Choice 3</item>
     </string-array>
 
-    <string-array name="question5">
-        <item>Choice 1</item>
-        <item>Choice 2</item>
-        <item>Choice 3</item>
-        <item>Choice 4</item>
-        <item>Choice 5</item>
+    <string-array name="choice4">
+        <item>Question 1 Choice 4</item>
+        <item>Question 2 Choice 4</item>
+        <item>Question 3 Choice 4</item>
+        <item>Question 4 Choice 4</item>
+        <item>Question 5 Choice 4</item>
+    </string-array>
+
+    <string-array name="choice5">
+        <item>Question 1 Choice 5</item>
+        <item>Question 2 Choice 5</item>
+        <item>Question 3 Choice 5</item>
+        <item>Question 4 Choice 5</item>
+        <item>Question 5 Choice 5</item>
     </string-array>
 
 
