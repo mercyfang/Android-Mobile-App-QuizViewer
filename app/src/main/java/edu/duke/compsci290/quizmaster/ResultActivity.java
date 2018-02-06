@@ -1,12 +1,8 @@
 package edu.duke.compsci290.quizmaster;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ResultActivity extends AppCompatActivity {
@@ -16,11 +12,13 @@ public class ResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
+        Intent receivedIntent = this.getIntent();
+        String quizScore = String.valueOf(
+                receivedIntent.getDoubleExtra(getString(R.string.scorekey), 0.0));
 
         TextView heading = findViewById(R.id.heading_text_view);
         TextView score = findViewById(R.id.score_text_view);
-
         heading.setText("Your Score is...");
-        score.setText("N/A");
+        score.setText(quizScore);
     }
 }

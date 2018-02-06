@@ -1,13 +1,10 @@
 package edu.duke.compsci290.quizmaster;
+
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -15,30 +12,26 @@ import android.widget.TextView;
 /**
  * Created by barbaraxiong on 1/25/18.
  */
-import java.util.Arrays;
-
-import edu.duke.compsci290.quizmaster.R;
-
-public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder>{
-    Context mContext;
-    String[] mQuestions;
-    String[] mChoice1;
-    String[] mChoice2;
-    String[] mChoice3;
-    String[] mChoice4;
-    String[] mChoice5;
+public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder> {
+    private Context mContext;
+    private String[] mQuestions;
+    private String[] mChoices1;
+    private String[] mChoices2;
+    private String[] mChoices3;
+    private String[] mChoices4;
+    private String[] mChoices5;
 
     private static final String TAG = QuizAdapter.class.getName();
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        LinearLayout mLinearLayout;
-        TextView mQuestion;
-        RadioGroup mChoices;
-        TextView mChoice1;
-        TextView mChoice2;
-        TextView mChoice3;
-        TextView mChoice4;
-        TextView mChoice5;
 
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        private LinearLayout mLinearLayout;
+        private TextView mQuestion;
+        private RadioGroup mChoices;
+        private TextView mChoice1;
+        private TextView mChoice2;
+        private TextView mChoice3;
+        private TextView mChoice4;
+        private TextView mChoice5;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -55,43 +48,45 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder>{
         }
     }
 
-    public QuizAdapter(final Context context, String[] questions, String[] choice1, String[] choice2, String[] choice3, String[] choice4, String[] choice5) {
+    public QuizAdapter(final Context context, String[] questions, String[] choice1,
+                       String[] choice2, String[] choice3, String[] choice4, String[] choice5) {
         this.mQuestions = questions;
-        this.mChoice1 = choice1;
-        this.mChoice2 = choice2;
-        this.mChoice3 = choice3;
-        this.mChoice4 = choice4;
-        this.mChoice5 = choice5;
+        this.mChoices1 = choice1;
+        this.mChoices2 = choice2;
+        this.mChoices3 = choice3;
+        this.mChoices4 = choice4;
+        this.mChoices5 = choice5;
         this.mContext = context;
     }
 
-
     @Override
-    public int getItemCount(){
+    public int getItemCount() {
         return mQuestions.length;
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        LayoutInflater mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        LayoutInflater mInflater =
+                (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View row = mInflater.inflate(R.layout.question_holder, parent, false);
         final ViewHolder questionHolder = new ViewHolder(row);
-
-
         return questionHolder;
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position){
-        holder.mQuestion.setText(mQuestions[position]);
-        holder.mChoice1.setText(mChoice1[position]);
-        holder.mChoice2.setText(mChoice2[position]);
-        holder.mChoice3.setText(mChoice3[position]);
-        holder.mChoice4.setText(mChoice4[position]);
-        holder.mChoice5.setText(mChoice5[position]);
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        // Todo(mercyfang): better way to deal with finding the correct question.
+        String[][] bruteForce = { mChoices1, mChoices2, mChoices3, mChoices4, mChoices5 };
 
+        holder.mQuestion.setText(mQuestions[position]);
+        holder.mChoice1.setText(bruteForce[position][0]);
+        holder.mChoice2.setText(bruteForce[position][1]);
+        holder.mChoice3.setText(bruteForce[position][2]);
+        holder.mChoice4.setText(bruteForce[position][3]);
+        holder.mChoice5.setText(bruteForce[position][4]);
     }
 
-
-
+    public double computeScore() {
+        return 100.0;
+    }
 }

@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">QuizMaster</string>
+    <string name="scorekey">score_key</string>
     <string-array name="question_list">
         <item>Question 1</item>
         <item>Question 2</item>
@@ -7,6 +8,7 @@
         <item>Question 4</item>
         <item>Question 5</item>
     </string-array>
+
     <string-array name="answers_list">
         <item>Answer 1</item>
         <item>Answer 2</item>
@@ -15,45 +17,44 @@
         <item>Answer 5</item>
     </string-array>
 
-    <string-array name="choice1">
+    <string-array name="choices1">
         <item>Question 1 Choice 1</item>
-        <item>Question 2 Choice 1</item>
-        <item>Question 3 Choice 1</item>
-        <item>Question 4 Choice 1</item>
-        <item>Question 5 Choice 1</item>
-    </string-array>
-
-    <string-array name="choice2">
         <item>Question 1 Choice 2</item>
-        <item>Question 2 Choice 2</item>
-        <item>Question 3 Choice 2</item>
-        <item>Question 4 Choice 2</item>
-        <item>Question 5 Choice 2</item>
-    </string-array>
-
-    <string-array name="choice3">
         <item>Question 1 Choice 3</item>
-        <item>Question 2 Choice 3</item>
-        <item>Question 3 Choice 3</item>
-        <item>Question 4 Choice 3</item>
-        <item>Question 5 Choice 3</item>
-    </string-array>
-
-    <string-array name="choice4">
         <item>Question 1 Choice 4</item>
-        <item>Question 2 Choice 4</item>
-        <item>Question 3 Choice 4</item>
-        <item>Question 4 Choice 4</item>
-        <item>Question 5 Choice 4</item>
+        <item>Question 1 Choice 5</item>
     </string-array>
 
-    <string-array name="choice5">
-        <item>Question 1 Choice 5</item>
+    <string-array name="choices2">
+        <item>Question 2 Choice 1</item>
+        <item>Question 2 Choice 2</item>
+        <item>Question 2 Choice 3</item>
+        <item>Question 2 Choice 4</item>
         <item>Question 2 Choice 5</item>
+    </string-array>
+
+    <string-array name="choices3">
+        <item>Question 3 Choice 1</item>
+        <item>Question 3 Choice 2</item>
+        <item>Question 3 Choice 3</item>
+        <item>Question 3 Choice 4</item>
         <item>Question 3 Choice 5</item>
+    </string-array>
+
+    <string-array name="choices4">
+        <item>Question 4 Choice 1</item>
+        <item>Question 4 Choice 2</item>
+        <item>Question 4 Choice 3</item>
+        <item>Question 4 Choice 4</item>
         <item>Question 4 Choice 5</item>
+    </string-array>
+
+    <string-array name="choices5">
+        <item>Question 5 Choice 1</item>
+        <item>Question 5 Choice 2</item>
+        <item>Question 5 Choice 3</item>
+        <item>Question 5 Choice 4</item>
         <item>Question 5 Choice 5</item>
     </string-array>
-
 
 </resources>
