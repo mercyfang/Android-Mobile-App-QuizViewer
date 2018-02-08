@@ -1,60 +1,37 @@
 <resources>
     <string name="app_name">QuizMaster</string>
     <string name="scorekey">score_key</string>
-    <string-array name="question_list">
-        <item>Question 1</item>
-        <item>Question 2</item>
-        <item>Question 3</item>
-        <item>Question 4</item>
-        <item>Question 5</item>
-    </string-array>
 
-    <string-array name="answers_list">
-        <item>Answer 1</item>
-        <item>Answer 2</item>
-        <item>Answer 3</item>
-        <item>Answer 4</item>
-        <item>Answer 5</item>
-    </string-array>
-
-    <string-array name="choices1">
-        <item>Question 1 Choice 1</item>
-        <item>Question 1 Choice 2</item>
-        <item>Question 1 Choice 3</item>
-        <item>Question 1 Choice 4</item>
-        <item>Question 1 Choice 5</item>
-    </string-array>
-
-    <string-array name="choices2">
-        <item>Question 2 Choice 1</item>
-        <item>Question 2 Choice 2</item>
-        <item>Question 2 Choice 3</item>
-        <item>Question 2 Choice 4</item>
-        <item>Question 2 Choice 5</item>
-    </string-array>
-
-    <string-array name="choices3">
-        <item>Question 3 Choice 1</item>
-        <item>Question 3 Choice 2</item>
-        <item>Question 3 Choice 3</item>
-        <item>Question 3 Choice 4</item>
-        <item>Question 3 Choice 5</item>
-    </string-array>
-
-    <string-array name="choices4">
-        <item>Question 4 Choice 1</item>
-        <item>Question 4 Choice 2</item>
-        <item>Question 4 Choice 3</item>
-        <item>Question 4 Choice 4</item>
-        <item>Question 4 Choice 5</item>
-    </string-array>
-
-    <string-array name="choices5">
-        <item>Question 5 Choice 1</item>
-        <item>Question 5 Choice 2</item>
-        <item>Question 5 Choice 3</item>
-        <item>Question 5 Choice 4</item>
-        <item>Question 5 Choice 5</item>
-    </string-array>
-
+    <string name="quiz_1">
+        {
+        \"questions\" :
+            [
+            {
+            \"question\": \"question 1\",
+            \"choices\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
+            \"answer\": \"answer 2\"
+            },
+            {
+            \"question\": \"question 2\",
+            \"choices\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
+            \"answer\": \"answer 1\"
+            },
+            {
+            \"question\": \"question 3\",
+            \"choices\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
+            \"answer\": \"answer 1\"
+            },
+            {
+            \"question\": \"question 4\",
+            \"choices\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
+            \"answer\": \"answer 2\"
+            },
+            {
+            \"question\": \"question 5\",
+            \"choices\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
+            \"answer\": \"answer 3\"
+            }
+            ]
+        }
+    </string>
 </resources>

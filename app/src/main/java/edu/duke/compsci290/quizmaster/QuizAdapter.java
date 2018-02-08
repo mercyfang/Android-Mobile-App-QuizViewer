@@ -9,6 +9,8 @@ import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 /**
  * Created by barbaraxiong on 1/25/18.
  */
@@ -48,15 +50,20 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder> {
         }
     }
 
-    public QuizAdapter(final Context context, String[] questions, String[] choice1,
+    public QuizAdapter(final Context context, ArrayList<Question> questions, String[] choice1,
                        String[] choice2, String[] choice3, String[] choice4, String[] choice5) {
-        this.mQuestions = questions;
-        this.mChoices1 = choice1;
-        this.mChoices2 = choice2;
-        this.mChoices3 = choice3;
-        this.mChoices4 = choice4;
-        this.mChoices5 = choice5;
-        this.mContext = context;
+        mQuestions = new String[questions.size()];
+        int idx = 0;
+        for (Question question : questions) {
+            mQuestions[idx] = question.getQuestion();
+            idx++;
+        }
+        mChoices1 = choice1;
+        mChoices2 = choice2;
+        mChoices3 = choice3;
+        mChoices4 = choice4;
+        mChoices5 = choice5;
+        mContext = context;
     }
 
     @Override
