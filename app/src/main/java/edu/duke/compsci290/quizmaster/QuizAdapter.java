@@ -94,6 +94,7 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder> {
     }
 
     public double computeScore() {
+        // Example: radioGroup.getCheckedRadioButtonId()!=R.id.radioButton1
         return 100.0;
     }
 }
