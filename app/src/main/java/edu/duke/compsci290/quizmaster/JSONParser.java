@@ -27,7 +27,7 @@ public class JSONParser {
                 String answer = current.getString("answer");
                 questions[i] = new Question(question, choices, answer);
             }
-            Quiz qz = new Quiz(questions);
+            Quiz qz = new LinearQuiz(questions);
             return qz;
         } catch (JSONException e) {
             Log.d("json parse", "error in parsing");
