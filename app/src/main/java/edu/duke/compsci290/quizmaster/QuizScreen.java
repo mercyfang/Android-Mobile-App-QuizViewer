@@ -8,11 +8,20 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.net.MalformedURLException;
 
 public class QuizScreen extends AppCompatActivity {
 
+    private Button mNextButton;
+    private Quiz quiz;
+    private TextView mQuestionView;
+    private TextView mScoreView;
+    private int mQuestionIndex;
+    private int mCorrect;
+    private String mScoreBase;
+    private boolean mQuizOver = false;
     private JSONQuizGenerator mJSONQuizGenerator;
 
     @Override
@@ -28,25 +37,18 @@ public class QuizScreen extends AppCompatActivity {
         }
         String json = mJSONQuizGenerator.getJSON(this);
         Quiz quiz = JSONParser.parse(json);
+        mQuestionView = this.findViewById(R.id.question_text_view);
+        mNextButton = this.findViewById(R.id.next_button);
+        mScoreView = this.findViewById(R.id.score_text_view);
+        mScoreBase = mScoreView.getText().toString();
 
-        RecyclerView rv = findViewById(R.id.activity_quiz_screen_recycler_view);
-        final QuizAdapter quizAdapter = new QuizAdapter(this,
-                quiz.getQuestions(),
-                quiz.getQuestion(0).getChoices(),
-                quiz.getQuestion(1).getChoices(),
-                quiz.getQuestion(2).getChoices(),
-                quiz.getQuestion(3).getChoices(),
-                quiz.getQuestion(4).getChoices());
-        rv.setAdapter(quizAdapter);
-        rv.setLayoutManager(new LinearLayoutManager(this));
-        final Button button = findViewById(R.id.submit_button);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        mNextButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
-                intent.putExtra(
-                        getApplicationContext().getString(R.string.scorekey),
-                        quizAdapter.computeScore());
+//                intent.putExtra(
+//                        getApplicationContext().getString(R.string.scorekey)),
+//                        quizAdapter.computeScore());
                 getApplicationContext().startActivity(intent);
             }
         });
