@@ -21,4 +21,8 @@ public class LinearQuiz implements Quiz {
     public Question getQuestion(int index) {
         return mQuestions.get(index);
     }
+
+    public int getQuestionAmount() {
+        return mQuestions.size();
+    }
 }
