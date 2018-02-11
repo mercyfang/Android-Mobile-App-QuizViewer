@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.net.MalformedURLException;
 
@@ -45,18 +47,17 @@ public class QuizScreen extends AppCompatActivity {
         mNextButton = this.findViewById(R.id.next_button);
         mQuestionIndex = 0;
         mScore = 0;
-
         mChoices = this.findViewById(R.id.choices_radio_group);
         mChoice1 = this.findViewById(R.id.choice1_radio_button);
         mChoice2 = this.findViewById(R.id.choice2_radio_button);
         mChoice3 = this.findViewById(R.id.choice3_radio_button);
         mChoice4 = this.findViewById(R.id.choice4_radio_button);
         mChoice5 = this.findViewById(R.id.choice5_radio_button);
+
         askQuestion();
 
         mNextButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                mChoices.clearCheck();
                 nextQuestion();
             }
         });
@@ -84,14 +85,29 @@ public class QuizScreen extends AppCompatActivity {
     }
 
     private void nextQuestion() {
+        updateScoreAndToastMessage();
+        mChoices.clearCheck();
         if (mQuestionIndex < mQuiz.getQuestionAmount() - 1) {
             mQuestionIndex++;
             askQuestion();
         } else {
             // In case of last question, show the result view.
             Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
-            intent.putExtra(getApplicationContext().getString(R.string.scorekey), mScore);
+            intent.putExtra(
+                    getApplicationContext().getString(R.string.scorekey),
+                    mScore / (double) mQuiz.getQuestionAmount() * 100);
             getApplicationContext().startActivity(intent);
+        }
+    }
+
+    private void updateScoreAndToastMessage() {
+        RadioButton selectedButton = mChoices.findViewById(mChoices.getCheckedRadioButtonId());
+        if (selectedButton.getText().toString().equals(
+                mQuiz.getQuestion(mQuestionIndex).getAnswer())) {
+            mScore++;
+            Toast.makeText(QuizScreen.this, "Correct", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(QuizScreen.this, "Incorrect", Toast.LENGTH_SHORT).show();
         }
     }
 

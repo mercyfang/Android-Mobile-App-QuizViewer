@@ -11,7 +11,7 @@ public class Question {
 
     public Question(String question, String[] choices, String answer) {
         mQuestion = question;
-        mAnswer = mAnswer;
+        mAnswer = answer;
         mChoices = choices;
     }
 
