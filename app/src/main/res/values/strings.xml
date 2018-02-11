@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">QuizMaster</string>
     <string name="scorekey">score_key</string>
-
+    <string name="quiz_type">quiz_type</string>
     <string name="quiz_1">
         {
         \"questions\":
@@ -41,24 +41,27 @@
             [
             {
             \"question\": \"personality question 1\",
-            \"choices\" : [\"answer 1\", \"answer 2\", \"answer 3\"],
+            \"choices\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
             \"answer\": \"\"
             },
             {
             \"question\": \"personality question 2\",
-            \"choices\" : [\"answer 1\", \"answer 2\", \"answer 3\"],
+            \"choices\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
             \"answer\": \"\"
             },
+            {
             \"question\": \"personality question 3\",
-            \"choices\" : [\"answer 1\", \"answer 2\", \"answer 3\"],
+            \"choices\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
             \"answer\": \"\"
             },
+            {
             \"question\": \"personality question 4\",
-            \"choices\" : [\"answer 1\", \"answer 2\", \"answer 3\"],
+            \"choices\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
             \"answer\": \"\"
             },
+            {
             \"question\": \"personality question 5\",
-            \"choices\" : [\"answer 1\", \"answer 2\", \"answer 3\"],
+            \"choices\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
             \"answer\": \"\"
             }
             ]

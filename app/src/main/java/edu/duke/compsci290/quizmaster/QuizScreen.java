@@ -35,14 +35,23 @@ public class QuizScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz_screen);
 
+        Intent receivedIntent = this.getIntent();
+        String quizType = String.valueOf(
+                receivedIntent.getStringExtra(getString(R.string.quiz_type)));
+
         try {
-            mJSONQuizGenerator = new JSONQuizGenerator(R.string.quiz_1);
+            if (quizType.equals("linear")) {
+                mJSONQuizGenerator = new JSONQuizGenerator(R.string.quiz_1);
+            } else {
+                mJSONQuizGenerator = new JSONQuizGenerator(R.string.personality_quiz_1);
+            }
         } catch (MalformedURLException e) {
             Log.d("APPMAIN","could not create JSON quiz");
             e.printStackTrace();
         }
+
         String json = mJSONQuizGenerator.getJSON(this);
-        mQuiz = JSONParser.parse(json);
+        mQuiz = JSONParser.parse(json, quizType);
         mQuestionView = this.findViewById(R.id.question_text_view);
         mNextButton = this.findViewById(R.id.next_button);
         mQuestionIndex = 0;
