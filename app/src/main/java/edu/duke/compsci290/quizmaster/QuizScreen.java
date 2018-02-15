@@ -16,6 +16,7 @@ import java.net.MalformedURLException;
 public class QuizScreen extends AppCompatActivity {
     private Button mNextButton;
     private Quiz mQuiz;
+    private String mQuizName;
     private TextView mQuestionView;
     private int mQuestionIndex;
     private int mScore;
@@ -39,6 +40,7 @@ public class QuizScreen extends AppCompatActivity {
         String quizType = String.valueOf(
                 receivedIntent.getStringExtra(getString(R.string.quiz_type)));
 
+
         try {
             if (quizType.equals("linear")) {
                 mJSONQuizGenerator = new JSONQuizGenerator(R.string.quiz_1);
@@ -51,7 +53,9 @@ public class QuizScreen extends AppCompatActivity {
         }
 
         String json = mJSONQuizGenerator.getJSON(this);
+
         mQuiz = JSONParser.parse(json, quizType);
+        mQuizName = mQuiz.getQuizName();
         mQuestionView = this.findViewById(R.id.question_text_view);
         mNextButton = this.findViewById(R.id.next_button);
         mQuestionIndex = 0;
@@ -104,7 +108,10 @@ public class QuizScreen extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
             intent.putExtra(
                     getApplicationContext().getString(R.string.scorekey),
-                    mScore / (double) mQuiz.getQuestionAmount() * 100);
+                    Integer.toString(mScore) + " out of " + Integer.toString(mQuiz.getQuestionAmount()));
+            intent.putExtra(
+                    getApplicationContext().getString(R.string.quiz_name),
+                    mQuizName);
             getApplicationContext().startActivity(intent);
         }
     }

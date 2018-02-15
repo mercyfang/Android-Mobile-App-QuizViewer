@@ -14,13 +14,11 @@
         android:layout_marginEnd="132dp"
         android:layout_marginStart="132dp"
         android:layout_marginTop="52dp"
-        android:text="Your Score is..."
         android:textAppearance="@android:style/TextAppearance.Material.Medium"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Your Score is..." />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/score_text_view"

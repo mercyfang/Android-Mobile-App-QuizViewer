@@ -9,9 +9,15 @@ import java.util.Arrays;
 
 public class PersonalityQuiz implements Quiz {
     private ArrayList<Question> mQuestions;
+    private String mQuizName;
 
-    public PersonalityQuiz(Question[] questions) {
+    public PersonalityQuiz(Question[] questions, String quizName) {
         mQuestions = new ArrayList<>(Arrays.asList(questions));
+        mQuizName = quizName;
+    }
+
+    public String getQuizName() {
+        return mQuizName;
     }
 
     public ArrayList<Question> getQuestions() {

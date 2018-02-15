@@ -15,6 +15,7 @@ public class JSONParser {
     public static Quiz parse(String jString, String quizType) {
         try {
             JSONObject all = new JSONObject(jString);
+            String quizName = all.getString("quizName");
             JSONArray jsonQuestions = all.getJSONArray("questions");
             Question[] questions = new Question[jsonQuestions.length()];
             for (int i = 0; i < jsonQuestions.length(); i++) {
@@ -30,7 +31,7 @@ public class JSONParser {
             }
 
             QuizFactory quizFactory = new QuizFactory();
-            return quizFactory.getQuiz(quizType, questions);
+            return quizFactory.getQuiz(quizType, questions, quizName);
         } catch (JSONException e) {
             Log.d("json parse", "error in parsing");
             e.printStackTrace();

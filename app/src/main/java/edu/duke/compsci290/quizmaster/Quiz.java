@@ -7,6 +7,7 @@ import java.util.ArrayList;
  */
 
 public interface Quiz {
+    String getQuizName();
     ArrayList<Question> getQuestions();
     Question getQuestion(int index);
     int getQuestionAmount();

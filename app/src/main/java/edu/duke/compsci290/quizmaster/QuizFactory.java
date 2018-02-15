@@ -9,15 +9,15 @@ import android.util.Log;
 public class QuizFactory {
 
     // Uses quiz type to get object of a certain type of quiz.
-    public static Quiz getQuiz(String quizType, Question[] questions) {
+    public static Quiz getQuiz(String quizType, Question[] questions, String quizName) {
         if (quizType.isEmpty()) {
             Log.d("quiz factory", "quiz type not specified");
             return null;
         }
         if (quizType.equals("linear")) {
-            return new LinearQuiz(questions);
+            return new LinearQuiz(questions, quizName);
         } else if (quizType.equals("personality")) {
-            return new PersonalityQuiz(questions);
+            return new PersonalityQuiz(questions, quizName);
         }
         return null;
     }

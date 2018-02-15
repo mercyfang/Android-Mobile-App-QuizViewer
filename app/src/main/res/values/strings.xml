@@ -2,8 +2,10 @@
     <string name="app_name">QuizMaster</string>
     <string name="scorekey">score_key</string>
     <string name="quiz_type">quiz_type</string>
+    <string name="quiz_name">quiz_name</string>
     <string name="quiz_1">
         {
+        \"quizName\": \"quiz_1\",
         \"questions\":
             [
             {
@@ -37,6 +39,7 @@
 
     <string name="personality_quiz_1">
         {
+        \"quizName\": \"quiz_1\",
         \"questions\":
             [
             {

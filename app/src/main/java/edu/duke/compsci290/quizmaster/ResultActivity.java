@@ -13,12 +13,16 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_result);
 
         Intent receivedIntent = this.getIntent();
+
+        String quizName = String.valueOf(
+                receivedIntent.getStringExtra(getString(R.string.quiz_name)));
+
         String quizScore = String.valueOf(
-                receivedIntent.getDoubleExtra(getString(R.string.scorekey), 0.0));
+                receivedIntent.getStringExtra(getString(R.string.scorekey)));
 
         TextView heading = findViewById(R.id.heading_text_view);
         TextView score = findViewById(R.id.score_text_view);
-        heading.setText("Your Score is...");
+        heading.setText(quizName);
         score.setText(quizScore);
     }
 }
