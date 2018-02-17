@@ -108,7 +108,8 @@ public class QuizScreen extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
             intent.putExtra(
                     getApplicationContext().getString(R.string.scorekey),
-                    Integer.toString(mScore) + " out of " + Integer.toString(mQuiz.getQuestionAmount()));
+                    Integer.toString(mScore) + " out of "
+                            + Integer.toString(mQuiz.getQuestionAmount()));
             intent.putExtra(
                     getApplicationContext().getString(R.string.quiz_name),
                     mQuizName);
@@ -117,9 +118,13 @@ public class QuizScreen extends AppCompatActivity {
     }
 
     private void updateScoreAndToastMessage() {
-        RadioButton selectedButton = mChoices.findViewById(mChoices.getCheckedRadioButtonId());
-        if (selectedButton.getText().toString().equals(
-                mQuiz.getQuestion(mQuestionIndex).getAnswer())) {
+        int checkedRadioButtonId = mChoices.getCheckedRadioButtonId();
+        String selectedButtonText = "";
+        if (checkedRadioButtonId != -1) {
+            RadioButton selectedButton = mChoices.findViewById(checkedRadioButtonId);
+            selectedButtonText = selectedButton.getText().toString();
+        }
+        if (selectedButtonText.equals(mQuiz.getQuestion(mQuestionIndex).getAnswer())) {
             mScore++;
             Toast.makeText(QuizScreen.this, "Correct", Toast.LENGTH_SHORT).show();
         } else {

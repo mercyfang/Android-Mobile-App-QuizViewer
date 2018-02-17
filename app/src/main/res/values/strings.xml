@@ -5,7 +5,7 @@
     <string name="quiz_name">quiz_name</string>
     <string name="quiz_1">
         {
-        \"quizName\": \"quiz_1\",
+        \"quizName\": \"Linear Quiz 1\",
         \"questions\":
             [
             {
@@ -39,7 +39,7 @@
 
     <string name="personality_quiz_1">
         {
-        \"quizName\": \"quiz_1\",
+        \"quizName\": \"Personality Quiz 1\",
         \"questions\":
             [
             {

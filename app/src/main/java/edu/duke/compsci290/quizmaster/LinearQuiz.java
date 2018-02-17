@@ -9,14 +9,16 @@ import java.util.Arrays;
 
 public class LinearQuiz implements Quiz {
     private ArrayList<Question> mQuestions;
-    String mQuizName;
+    private String mQuizName;
 
     public LinearQuiz(Question[] questions, String quizName) {
         mQuestions = new ArrayList<>(Arrays.asList(questions));
         mQuizName = quizName;
     }
 
-    public String getQuizName() {return mQuizName;}
+    public String getQuizName() {
+        return mQuizName;
+    }
 
     public ArrayList<Question> getQuestions() {
         return mQuestions;
