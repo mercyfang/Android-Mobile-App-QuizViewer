@@ -1,29 +1,41 @@
 package edu.duke.compsci290.quizmaster;
 
+import java.util.HashMap;
+
 /**
  * Created by mercyfang on 2/7/18.
  */
 
 public class Question {
     private String mQuestion;
-    private String[] mChoices;
-    private String mAnswer;
+    private Answer[] mAnswers;
+    private HashMap<String, String> mMap;
 
-    public Question(String question, String[] choices, String answer) {
+    public Question(String question, Answer[] answers) {
         mQuestion = question;
-        mAnswer = answer;
-        mChoices = choices;
+        mAnswers = answers;
+        mMap = new HashMap<>();
+        for (Answer answer : answers) {
+            mMap.put(answer.getAnswer(), answer.getAttribute());
+        }
     }
 
     public String getQuestion() {
         return mQuestion;
     }
 
-    public String[] getChoices() {
-        return mChoices;
+    public Answer[] getAnswers() {
+        return mAnswers;
     }
 
-    public String getAnswer() {
-        return mAnswer;
+    public Answer getAnswer(int index) {
+        return mAnswers[index];
+    }
+
+    public String getAttribute(String answer) {
+        if (!mMap.containsKey(answer)) {
+            return "";
+        }
+        return mMap.get(answer);
     }
 }

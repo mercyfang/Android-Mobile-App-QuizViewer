@@ -10,10 +10,20 @@ import java.util.Arrays;
 public class LinearQuiz implements Quiz {
     private ArrayList<Question> mQuestions;
     private String mQuizName;
+    private int mCurrentQuestion;
 
     public LinearQuiz(Question[] questions, String quizName) {
         mQuestions = new ArrayList<>(Arrays.asList(questions));
         mQuizName = quizName;
+        mCurrentQuestion = 0;
+    }
+
+    public void updateCurrentQuestionIndex(int index) {
+        mCurrentQuestion = index;
+    }
+
+    public int getCurrentQuestionIndex() {
+        return mCurrentQuestion;
     }
 
     public String getQuizName() {

@@ -21,13 +21,13 @@ public class JSONParser {
             for (int i = 0; i < jsonQuestions.length(); i++) {
                 JSONObject current = jsonQuestions.getJSONObject(i);
                 String question = current.getString("question");
-                JSONArray jsonChoices = current.getJSONArray("choices");
-                String[] choices = new String[jsonChoices.length()];
-                for (int j = 0; j < choices.length; j++) {
-                    choices[j] = jsonChoices.getString(j);
+                JSONArray jsonAnswers = current.getJSONArray("answers");
+                JSONArray jsonAttributes = current.getJSONArray("attributes");
+                Answer[] answers = new Answer[jsonAnswers.length()];
+                for (int j = 0; j < answers.length; j++) {
+                    answers[j] = new Answer(jsonAnswers.getString(j), jsonAttributes.getString(j));
                 }
-                String answer = current.getString("answer");
-                questions[i] = new Question(question, choices, answer);
+                questions[i] = new Question(question, answers);
             }
 
             QuizFactory quizFactory = new QuizFactory();
@@ -38,4 +38,5 @@ public class JSONParser {
         }
         return null;
     }
+
 }

@@ -10,28 +10,28 @@
             [
             {
             \"question\": \"question 1\",
-            \"choices\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
-            \"answer\": \"answer 2\"
+            \"answers\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
+            \"attributes\" : [\"correct\", \"incorrect\", \"incorrect\", \"incorrect\", \"incorrect\"]
             },
             {
             \"question\": \"question 2\",
-            \"choices\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
-            \"answer\": \"answer 1\"
+            \"answers\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
+            \"attributes\" : [\"incorrect\", \"correct\", \"incorrect\", \"incorrect\", \"incorrect\"]
             },
             {
             \"question\": \"question 3\",
-            \"choices\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
-            \"answer\": \"answer 1\"
+            \"answers\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
+            \"attributes\" : [\"correct\", \"incorrect\", \"incorrect\", \"incorrect\", \"incorrect\"]
             },
             {
             \"question\": \"question 4\",
-            \"choices\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
-            \"answer\": \"answer 2\"
+            \"answers\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
+            \"attributes\" : [\"incorrect\", \"correct\", \"incorrect\", \"incorrect\", \"incorrect\"]
             },
             {
             \"question\": \"question 5\",
-            \"choices\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
-            \"answer\": \"answer 3\"
+            \"answers\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
+            \"attributes\" : [\"incorrect\", \"incorrect\", \"incorrect\", \"correct\", \"incorrect\"]
             }
             ]
         }
@@ -44,28 +44,28 @@
             [
             {
             \"question\": \"personality question 1\",
-            \"choices\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
-            \"answer\": \"\"
+            \"answers\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
+            \"attributes\": [\"\", \"\", \"\", \"\", \"\"]
             },
             {
             \"question\": \"personality question 2\",
-            \"choices\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
-            \"answer\": \"\"
+            \"answers\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
+            \"attributes\": [\"\", \"\", \"\", \"\", \"\"]
             },
             {
             \"question\": \"personality question 3\",
-            \"choices\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
-            \"answer\": \"\"
+            \"answers\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
+            \"attributes\": [\"\", \"\", \"\", \"\", \"\"]
             },
             {
             \"question\": \"personality question 4\",
-            \"choices\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
-            \"answer\": \"\"
+            \"answers\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
+            \"attributes\": [\"\", \"\", \"\", \"\", \"\"]
             },
             {
             \"question\": \"personality question 5\",
-            \"choices\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
-            \"answer\": \"\"
+            \"answers\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
+            \"attributes\": [\"\", \"\", \"\", \"\", \"\"]
             }
             ]
         }

@@ -20,6 +20,7 @@ public class QuizScreen extends AppCompatActivity {
     private TextView mQuestionView;
     private int mQuestionIndex;
     private int mScore;
+    private String mQuizType;
     private JSONQuizGenerator mJSONQuizGenerator;
     private RadioGroup mChoices;
     private TextView mChoice1;
@@ -37,12 +38,10 @@ public class QuizScreen extends AppCompatActivity {
         setContentView(R.layout.activity_quiz_screen);
 
         Intent receivedIntent = this.getIntent();
-        String quizType = String.valueOf(
-                receivedIntent.getStringExtra(getString(R.string.quiz_type)));
-
+        mQuizType = String.valueOf(receivedIntent.getStringExtra(getString(R.string.quiz_type)));
 
         try {
-            if (quizType.equals("linear")) {
+            if (mQuizType.equals("linear")) {
                 mJSONQuizGenerator = new JSONQuizGenerator(R.string.quiz_1);
             } else {
                 mJSONQuizGenerator = new JSONQuizGenerator(R.string.personality_quiz_1);
@@ -54,7 +53,7 @@ public class QuizScreen extends AppCompatActivity {
 
         String json = mJSONQuizGenerator.getJSON(this);
 
-        mQuiz = JSONParser.parse(json, quizType);
+        mQuiz = JSONParser.parse(json, mQuizType);
         mQuizName = mQuiz.getQuizName();
         mQuestionView = this.findViewById(R.id.question_text_view);
         mNextButton = this.findViewById(R.id.next_button);
@@ -124,22 +123,33 @@ public class QuizScreen extends AppCompatActivity {
             RadioButton selectedButton = mChoices.findViewById(checkedRadioButtonId);
             selectedButtonText = selectedButton.getText().toString();
         }
-        if (selectedButtonText.equals(mQuiz.getQuestion(mQuestionIndex).getAnswer())) {
-            mScore++;
-            Toast.makeText(QuizScreen.this, "Correct", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(QuizScreen.this, "Incorrect", Toast.LENGTH_SHORT).show();
+        switch (mQuizType) {
+            case "linear":
+                if (mQuiz.getQuestion(mQuestionIndex).getAttribute(selectedButtonText)
+                        .equals("correct")) {
+                    mScore++;
+                    Toast.makeText(QuizScreen.this, "Correct", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(QuizScreen.this, "Incorrect", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case "personality":
+                // TODO(merycfang): score based on attributes.
+                break;
+            default:
+                Log.d("QuizScreen", "quiz type is not specified");
+                break;
         }
     }
 
     private void askQuestion() {
         Question q = mQuiz.getQuestion(mQuestionIndex);
         mQuestionView.setText(q.getQuestion());
-        String[] choices = q.getChoices();
-        mChoice1.setText(choices[0]);
-        mChoice2.setText(choices[1]);
-        mChoice3.setText(choices[2]);
-        mChoice4.setText(choices[3]);
-        mChoice5.setText(choices[4]);
+        Answer[] answers = q.getAnswers();
+        mChoice1.setText(answers[0].getAnswer());
+        mChoice2.setText(answers[1].getAnswer());
+        mChoice3.setText(answers[2].getAnswer());
+        mChoice4.setText(answers[3].getAnswer());
+        mChoice5.setText(answers[4].getAnswer());
     }
 }
