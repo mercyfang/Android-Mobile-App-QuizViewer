@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.net.MalformedURLException;
+import java.util.ArrayList;
 
 public class QuizScreen extends AppCompatActivity {
     private Button mNextButton;
@@ -145,11 +146,10 @@ public class QuizScreen extends AppCompatActivity {
     private void askQuestion() {
         Question q = mQuiz.getQuestion(mQuestionIndex);
         mQuestionView.setText(q.getQuestion());
-        Answer[] answers = q.getAnswers();
-        mChoice1.setText(answers[0].getAnswer());
-        mChoice2.setText(answers[1].getAnswer());
-        mChoice3.setText(answers[2].getAnswer());
-        mChoice4.setText(answers[3].getAnswer());
-        mChoice5.setText(answers[4].getAnswer());
+        mChoice1.setText(q.getAnswer(0).getAnswer());
+        mChoice2.setText(q.getAnswer(1).getAnswer());
+        mChoice3.setText(q.getAnswer(2).getAnswer());
+        mChoice4.setText(q.getAnswer(3).getAnswer());
+        mChoice5.setText(q.getAnswer(4).getAnswer());
     }
 }

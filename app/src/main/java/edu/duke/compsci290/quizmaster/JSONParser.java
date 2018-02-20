@@ -6,6 +6,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 /**
  * Created by mercyfang on 2/7/18.
  */
@@ -23,9 +25,9 @@ public class JSONParser {
                 String question = current.getString("question");
                 JSONArray jsonAnswers = current.getJSONArray("answers");
                 JSONArray jsonAttributes = current.getJSONArray("attributes");
-                Answer[] answers = new Answer[jsonAnswers.length()];
-                for (int j = 0; j < answers.length; j++) {
-                    answers[j] = new Answer(jsonAnswers.getString(j), jsonAttributes.getString(j));
+                ArrayList<Answer> answers = new ArrayList<>();
+                for (int j = 0; j < jsonAnswers.length(); j++) {
+                    answers.add(new Answer(jsonAnswers.getString(j), jsonAttributes.getString(j)));
                 }
                 questions[i] = new Question(question, answers);
             }
@@ -38,5 +40,4 @@ public class JSONParser {
         }
         return null;
     }
-
 }

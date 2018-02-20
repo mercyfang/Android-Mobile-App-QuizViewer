@@ -1,5 +1,6 @@
 package edu.duke.compsci290.quizmaster;
 
+import java.util.List;
 import java.util.HashMap;
 
 /**
@@ -8,10 +9,10 @@ import java.util.HashMap;
 
 public class Question {
     private String mQuestion;
-    private Answer[] mAnswers;
+    private List<Answer> mAnswers;
     private HashMap<String, String> mMap;
 
-    public Question(String question, Answer[] answers) {
+    public Question(String question, List<Answer> answers) {
         mQuestion = question;
         mAnswers = answers;
         mMap = new HashMap<>();
@@ -24,12 +25,12 @@ public class Question {
         return mQuestion;
     }
 
-    public Answer[] getAnswers() {
+    public Iterable<Answer> getAnswers() {
         return mAnswers;
     }
 
     public Answer getAnswer(int index) {
-        return mAnswers[index];
+        return mAnswers.get(index);
     }
 
     public String getAttribute(String answer) {

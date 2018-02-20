@@ -29,7 +29,7 @@ public class PersonalityQuiz implements Quiz {
         return mQuizName;
     }
 
-    public ArrayList<Question> getQuestions() {
+    public Iterable<Question> getQuestions() {
         return mQuestions;
     }
 
