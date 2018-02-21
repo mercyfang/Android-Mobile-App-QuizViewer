@@ -45,27 +45,27 @@
             {
             \"question\": \"personality question 1\",
             \"answers\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
-            \"attributes\": [\"\", \"\", \"\", \"\", \"\"]
+            \"attributes\" : [\"type 1\", \"type 2\", \"type 3\", \"type 4\", \"type 5\"]
             },
             {
             \"question\": \"personality question 2\",
             \"answers\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
-            \"attributes\": [\"\", \"\", \"\", \"\", \"\"]
+            \"attributes\" : [\"type 1\", \"type 2\", \"type 3\", \"type 4\", \"type 5\"]
             },
             {
             \"question\": \"personality question 3\",
             \"answers\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
-            \"attributes\": [\"\", \"\", \"\", \"\", \"\"]
+            \"attributes\" : [\"type 1\", \"type 2\", \"type 3\", \"type 4\", \"type 5\"]
             },
             {
             \"question\": \"personality question 4\",
             \"answers\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
-            \"attributes\": [\"\", \"\", \"\", \"\", \"\"]
+            \"attributes\" : [\"type 1\", \"type 2\", \"type 3\", \"type 4\", \"type 5\"]
             },
             {
             \"question\": \"personality question 5\",
             \"answers\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
-            \"attributes\": [\"\", \"\", \"\", \"\", \"\"]
+            \"attributes\" : [\"type 1\", \"type 2\", \"type 3\", \"type 4\", \"type 5\"]
             }
             ]
         }

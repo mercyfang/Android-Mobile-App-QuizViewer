@@ -2,6 +2,7 @@ package edu.duke.compsci290.quizmaster;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 
 /**
  * Created by mercyfang on 2/7/18.
@@ -12,7 +13,7 @@ public class LinearQuiz implements Quiz {
     private String mQuizName;
     private int mCurrentQuestion;
 
-    public LinearQuiz(Question[] questions, String quizName) {
+    public LinearQuiz(Question[] questions, String quizName, HashSet<String> attributes) {
         mQuestions = new ArrayList<>(Arrays.asList(questions));
         mQuizName = quizName;
         mCurrentQuestion = 0;
@@ -40,5 +41,9 @@ public class LinearQuiz implements Quiz {
 
     public int getQuestionAmount() {
         return mQuestions.size();
+    }
+
+    public String processResult() {
+        return "";
     }
 }

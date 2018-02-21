@@ -1,7 +1,14 @@
 package edu.duke.compsci290.quizmaster;
 
+import android.annotation.TargetApi;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Created by mercyfang on 2/9/18.
@@ -11,10 +18,12 @@ public class PersonalityQuiz implements Quiz {
     private ArrayList<Question> mQuestions;
     private String mQuizName;
     private int mCurrentQuestion;
+    private HashSet<String> mAttributes;
 
-    public PersonalityQuiz(Question[] questions, String quizName) {
+    public PersonalityQuiz(Question[] questions, String quizName, HashSet<String> attributes) {
         mQuestions = new ArrayList<>(Arrays.asList(questions));
         mQuizName = quizName;
+        mAttributes = attributes;
     }
 
     public void updateCurrentQuestionIndex(int index) {
@@ -39,5 +48,23 @@ public class PersonalityQuiz implements Quiz {
 
     public int getQuestionAmount() {
         return mQuestions.size();
+    }
+
+    @TargetApi(24)
+    public String processResult() {
+        Map<String, Integer> attributeCount = new HashMap<>();
+        for (Question question : mQuestions) {
+            String attribute = question.getAttribute(question.getChosen());
+            if (!attribute.equals("")) {
+                attributeCount.put(
+                        attribute, attributeCount.getOrDefault(attribute, 0) + 1);
+            }
+        }
+        // Sort the attributes map by count.
+        List<String> sortedAttributeCount = attributeCount.entrySet().stream()
+                .sorted(Map.Entry.comparingByValue((Integer i1, Integer i2) -> i2 - i1))
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toList());
+        return sortedAttributeCount.get(0);
     }
 }

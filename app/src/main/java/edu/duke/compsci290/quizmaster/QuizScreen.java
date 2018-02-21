@@ -12,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.net.MalformedURLException;
-import java.util.ArrayList;
 
 public class QuizScreen extends AppCompatActivity {
     private Button mNextButton;
@@ -106,10 +105,21 @@ public class QuizScreen extends AppCompatActivity {
         } else {
             // In case of last question, show the result view.
             Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
-            intent.putExtra(
-                    getApplicationContext().getString(R.string.scorekey),
-                    Integer.toString(mScore) + " out of "
-                            + Integer.toString(mQuiz.getQuestionAmount()));
+            switch (mQuizType) {
+                // Linear Quiz result page displays the score.
+                case "linear":
+                    intent.putExtra(getApplicationContext().getString(R.string.scorekey),
+                            Integer.toString(mScore) + " out of "
+                                    + Integer.toString(mQuiz.getQuestionAmount()));
+                    break;
+                // Personality Quiz result page displays the most accurate personality attribute.
+                case "personality":
+                    intent.putExtra(getApplicationContext().getString(R.string.scorekey),
+                            mQuiz.processResult());
+                    break;
+                default:
+                    break;
+            }
             intent.putExtra(
                     getApplicationContext().getString(R.string.quiz_name),
                     mQuizName);
@@ -126,6 +136,7 @@ public class QuizScreen extends AppCompatActivity {
         }
         switch (mQuizType) {
             case "linear":
+                mQuiz.getQuestion(mQuestionIndex).processChosen(selectedButtonText);
                 if (mQuiz.getQuestion(mQuestionIndex).getAttribute(selectedButtonText)
                         .equals("correct")) {
                     mScore++;
@@ -135,7 +146,7 @@ public class QuizScreen extends AppCompatActivity {
                 }
                 break;
             case "personality":
-                // TODO(merycfang): score based on attributes.
+                mQuiz.getQuestion(mQuestionIndex).processChosen(selectedButtonText);
                 break;
             default:
                 Log.d("QuizScreen", "quiz type is not specified");

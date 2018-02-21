@@ -1,5 +1,7 @@
 package edu.duke.compsci290.quizmaster;
 
+import android.util.Log;
+
 import java.util.List;
 import java.util.HashMap;
 
@@ -10,7 +12,9 @@ import java.util.HashMap;
 public class Question {
     private String mQuestion;
     private List<Answer> mAnswers;
+    // mMap maps answer to the attribute associated with it.
     private HashMap<String, String> mMap;
+    private String mChosenAnswer;
 
     public Question(String question, List<Answer> answers) {
         mQuestion = question;
@@ -35,8 +39,17 @@ public class Question {
 
     public String getAttribute(String answer) {
         if (!mMap.containsKey(answer)) {
+            Log.d("Question class", "answer is not found");
             return "";
         }
         return mMap.get(answer);
+    }
+
+    public void processChosen(String chosenAnswer) {
+        mChosenAnswer = chosenAnswer;
+    }
+
+    public String getChosen() {
+        return mChosenAnswer;
     }
 }
