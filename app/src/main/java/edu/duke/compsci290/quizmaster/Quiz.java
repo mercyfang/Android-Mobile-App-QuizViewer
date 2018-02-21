@@ -10,5 +10,5 @@ public interface Quiz {
     Iterable<Question> getQuestions();
     Question getQuestion(int index);
     int getQuestionAmount();
-    String processResult();
+    String processResult() throws QuizResultException;
 }

@@ -114,8 +114,14 @@ public class QuizScreen extends AppCompatActivity {
                     break;
                 // Personality Quiz result page displays the most accurate personality attribute.
                 case "personality":
+                    String processedResult = "";
+                    try {
+                        processedResult = mQuiz.processResult();
+                    } catch (QuizResultException e) {
+                        processedResult = "No Result";
+                    }
                     intent.putExtra(getApplicationContext().getString(R.string.scorekey),
-                            mQuiz.processResult());
+                            processedResult);
                     break;
                 default:
                     break;

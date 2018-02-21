@@ -43,7 +43,11 @@ public class LinearQuiz implements Quiz {
         return mQuestions.size();
     }
 
-    public String processResult() {
-        return "";
+    public String processResult() throws QuizResultException {
+        try {
+            return "";
+        } catch (Exception e) {
+            throw new QuizResultException("Quiz result cannot be processed for Linear Quiz.");
+        }
     }
 }

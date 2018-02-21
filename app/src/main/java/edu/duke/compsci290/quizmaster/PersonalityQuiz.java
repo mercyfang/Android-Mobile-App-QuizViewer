@@ -51,20 +51,25 @@ public class PersonalityQuiz implements Quiz {
     }
 
     @TargetApi(24)
-    public String processResult() {
-        Map<String, Integer> attributeCount = new HashMap<>();
-        for (Question question : mQuestions) {
-            String attribute = question.getAttribute(question.getChosen());
-            if (!attribute.equals("")) {
-                attributeCount.put(
-                        attribute, attributeCount.getOrDefault(attribute, 0) + 1);
+    public String processResult() throws QuizResultException {
+        try {
+            Map<String, Integer> attributeCount = new HashMap<>();
+            for (Question question : mQuestions) {
+                String attribute = question.getAttribute(question.getChosen());
+                if (!attribute.equals("")) {
+                    attributeCount.put(
+                            attribute, attributeCount.getOrDefault(attribute, 0) + 1);
+                }
             }
+            // Sort the attributes map by count.
+            List<String> sortedAttributeCount = attributeCount.entrySet().stream()
+                    .sorted(Map.Entry.comparingByValue((Integer i1, Integer i2) -> i2 - i1))
+                    .map(Map.Entry::getKey)
+                    .collect(Collectors.toList());
+            return sortedAttributeCount.get(0);
+        } catch (Exception e) {
+            // If user didn't select any choices for any questions, quiz result cannot be processed.
+            throw new QuizResultException("Quiz result cannot be processed for Personality Quiz.");
         }
-        // Sort the attributes map by count.
-        List<String> sortedAttributeCount = attributeCount.entrySet().stream()
-                .sorted(Map.Entry.comparingByValue((Integer i1, Integer i2) -> i2 - i1))
-                .map(Map.Entry::getKey)
-                .collect(Collectors.toList());
-        return sortedAttributeCount.get(0);
     }
 }
