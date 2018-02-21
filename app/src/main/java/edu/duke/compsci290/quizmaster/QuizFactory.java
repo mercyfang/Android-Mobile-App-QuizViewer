@@ -21,6 +21,8 @@ public class QuizFactory {
             return new LinearQuiz(questions, quizName, attributes);
         } else if (quizType.equals("personality")) {
             return new PersonalityQuiz(questions, quizName, attributes);
+        } else if (quizType.equals("nonlinear")) {
+            return new NonLinearQuiz(questions, quizName, attributes);
         }
         return null;
     }

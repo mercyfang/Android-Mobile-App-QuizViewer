@@ -32,7 +32,12 @@ public class JSONParser {
                     answers.add(new Answer(jsonAnswers.getString(j), jsonAttributes.getString(j)));
                     attributes.add(jsonAttributes.getString(j));
                 }
+
                 questions[i] = new Question(question, answers);
+                // Non-Linear quiz contains difficulty attribute for each question.
+                if (quizType.equals("nonlinear")) {
+                    questions[i].setDifficulty(current.getString("difficulty"));
+                }
             }
 
             QuizFactory quizFactory = new QuizFactory();

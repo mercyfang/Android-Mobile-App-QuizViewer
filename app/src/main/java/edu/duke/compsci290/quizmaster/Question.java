@@ -15,6 +15,7 @@ public class Question {
     // mMap maps answer to the attribute associated with it.
     private HashMap<String, String> mMap;
     private String mChosenAnswer;
+    private String mDifficulty;
 
     public Question(String question, List<Answer> answers) {
         mQuestion = question;
@@ -51,5 +52,13 @@ public class Question {
 
     public String getChosen() {
         return mChosenAnswer;
+    }
+
+    public void setDifficulty(String difficulty) {
+        mDifficulty = difficulty;
+    }
+
+    public String getDifficulty() {
+        return mDifficulty;
     }
 }

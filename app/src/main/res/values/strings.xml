@@ -70,4 +70,43 @@
             ]
         }
     </string>
+
+    <string name="non_linear_quiz_1">
+        {
+        \"quizName\": \"Non-Linear Quiz 1\",
+        \"questions\":
+            [
+            {
+            \"question\": \"question 1\",
+            \"answers\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
+            \"attributes\" : [\"correct\", \"incorrect\", \"incorrect\", \"incorrect\", \"incorrect\"],
+            \"difficulty\" : "easy"
+            },
+            {
+            \"question\": \"question 2\",
+            \"answers\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
+            \"attributes\" : [\"incorrect\", \"correct\", \"incorrect\", \"incorrect\", \"incorrect\"],
+            \"difficulty\" : "easy"
+            },
+            {
+            \"question\": \"question 3\",
+            \"answers\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
+            \"attributes\" : [\"correct\", \"incorrect\", \"incorrect\", \"incorrect\", \"incorrect\"],
+            \"difficulty\" : "hard"
+            },
+            {
+            \"question\": \"question 4\",
+            \"answers\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
+            \"attributes\" : [\"incorrect\", \"correct\", \"incorrect\", \"incorrect\", \"incorrect\"],
+            \"difficulty\" : "hard"
+            },
+            {
+            \"question\": \"question 5\",
+            \"answers\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
+            \"attributes\" : [\"incorrect\", \"incorrect\", \"incorrect\", \"correct\", \"incorrect\"],
+            \"difficulty\" : "easy"
+            }
+            ]
+        }
+    </string>
 </resources>

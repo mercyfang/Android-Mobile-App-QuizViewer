@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
         final Button linearQuizButton = findViewById(R.id.linear_quiz_button);
         final Button personalityQuizButton = findViewById(R.id.personality_quiz_button);
+        final Button nonLinearQuizButton = findViewById(R.id.non_linear_quiz_button);
         final Button newQuizButton = findViewById(R.id.new_quiz_button);
 
         linearQuizButton.setOnClickListener(new View.OnClickListener() {
@@ -35,6 +36,17 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(
                         getApplicationContext().getString(R.string.quiz_type),
                         "personality");
+                getApplicationContext().startActivity(intent);
+            }
+        });
+
+        nonLinearQuizButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), QuizScreen.class);
+                intent.putExtra(
+                        getApplicationContext().getString(R.string.quiz_type),
+                        "nonlinear");
                 getApplicationContext().startActivity(intent);
             }
         });

@@ -43,8 +43,10 @@ public class QuizScreen extends AppCompatActivity {
         try {
             if (mQuizType.equals("linear")) {
                 mJSONQuizGenerator = new JSONQuizGenerator(R.string.quiz_1);
-            } else {
+            } else if (mQuizType.equals("personality")) {
                 mJSONQuizGenerator = new JSONQuizGenerator(R.string.personality_quiz_1);
+            } else if (mQuizType.equals("nonlinear")) {
+                mJSONQuizGenerator = new JSONQuizGenerator(R.string.non_linear_quiz_1);
             }
         } catch (MalformedURLException e) {
             Log.d("APPMAIN","could not create JSON quiz");
@@ -107,7 +109,7 @@ public class QuizScreen extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
             switch (mQuizType) {
                 // Linear Quiz result page displays the score.
-                case "linear":
+                case "linear": case "nonlinear":
                     intent.putExtra(getApplicationContext().getString(R.string.scorekey),
                             Integer.toString(mScore) + " out of "
                                     + Integer.toString(mQuiz.getQuestionAmount()));
@@ -141,7 +143,7 @@ public class QuizScreen extends AppCompatActivity {
             selectedButtonText = selectedButton.getText().toString();
         }
         switch (mQuizType) {
-            case "linear":
+            case "linear": case "nonlinear":
                 mQuiz.getQuestion(mQuestionIndex).processChosen(selectedButtonText);
                 if (mQuiz.getQuestion(mQuestionIndex).getAttribute(selectedButtonText)
                         .equals("correct")) {
