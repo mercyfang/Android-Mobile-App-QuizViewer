@@ -42,12 +42,13 @@ public class NonLinearQuiz implements Quiz {
     }
 
     public void updateScore() {
+
         mScore++;
     }
 
     public String processResult() throws QuizResultException {
         try {
-            return "";
+            return String.valueOf(mScore);
         } catch (Exception e) {
             throw new QuizResultException("Quiz result cannot be processed for Non-Linear Quiz.");
         }
