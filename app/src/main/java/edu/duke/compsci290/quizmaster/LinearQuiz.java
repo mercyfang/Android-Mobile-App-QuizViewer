@@ -2,7 +2,11 @@ package edu.duke.compsci290.quizmaster;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Created by mercyfang on 2/7/18.
@@ -12,11 +16,13 @@ public class LinearQuiz implements Quiz {
     private ArrayList<Question> mQuestions;
     private String mQuizName;
     private int mCurrentQuestion;
+    private int mScore;
 
     public LinearQuiz(Question[] questions, String quizName, HashSet<String> attributes) {
         mQuestions = new ArrayList<>(Arrays.asList(questions));
         mQuizName = quizName;
         mCurrentQuestion = 0;
+        mScore = 0;
     }
 
     public void updateCurrentQuestionIndex(int index) {
@@ -43,9 +49,13 @@ public class LinearQuiz implements Quiz {
         return mQuestions.size();
     }
 
+    public void updateScore() {
+        mScore++;
+    }
+
     public String processResult() throws QuizResultException {
         try {
-            return "";
+            return String.valueOf(mScore);
         } catch (Exception e) {
             throw new QuizResultException("Quiz result cannot be processed for Linear Quiz.");
         }

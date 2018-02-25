@@ -50,6 +50,9 @@ public class PersonalityQuiz implements Quiz {
         return mQuestions.size();
     }
 
+    public void updateScore() {
+    }
+
     @TargetApi(24)
     public String processResult() throws QuizResultException {
         try {

@@ -19,7 +19,6 @@ public class QuizScreen extends AppCompatActivity {
     private String mQuizName;
     private TextView mQuestionView;
     private int mQuestionIndex;
-    private int mScore;
     private String mQuizType;
     private JSONQuizGenerator mJSONQuizGenerator;
     private RadioGroup mChoices;
@@ -60,7 +59,6 @@ public class QuizScreen extends AppCompatActivity {
         mQuestionView = this.findViewById(R.id.question_text_view);
         mNextButton = this.findViewById(R.id.next_button);
         mQuestionIndex = 0;
-        mScore = 0;
         mChoices = this.findViewById(R.id.choices_radio_group);
         mChoice1 = this.findViewById(R.id.choice1_radio_button);
         mChoice2 = this.findViewById(R.id.choice2_radio_button);
@@ -80,7 +78,6 @@ public class QuizScreen extends AppCompatActivity {
     @Override
     public void onRestoreInstanceState(Bundle savedInstanceState) {
         mQuestionIndex = savedInstanceState.getInt(INDEX);
-        mScore = savedInstanceState.getInt(SCORE);
         askQuestion();
         // Restores mQuestionIndex to the current index.
         mQuestionIndex--;
@@ -89,7 +86,6 @@ public class QuizScreen extends AppCompatActivity {
     @Override
     public void onSaveInstanceState(Bundle state) {
         state.putInt(INDEX, mQuestionIndex);
-        state.putInt(SCORE, mScore);
         super.onSaveInstanceState(state);
     }
 
@@ -110,9 +106,14 @@ public class QuizScreen extends AppCompatActivity {
             switch (mQuizType) {
                 // Linear Quiz result page displays the score.
                 case "linear": case "nonlinear":
+                    String score = "";
+                    try {
+                        score = mQuiz.processResult();
+                    } catch (QuizResultException e) {
+                        // Do nothing.
+                    }
                     intent.putExtra(getApplicationContext().getString(R.string.scorekey),
-                            Integer.toString(mScore) + " out of "
-                                    + Integer.toString(mQuiz.getQuestionAmount()));
+                            score + " out of " + Integer.toString(mQuiz.getQuestionAmount()));
                     break;
                 // Personality Quiz result page displays the most accurate personality attribute.
                 case "personality":
@@ -147,7 +148,7 @@ public class QuizScreen extends AppCompatActivity {
                 mQuiz.getQuestion(mQuestionIndex).processChosen(selectedButtonText);
                 if (mQuiz.getQuestion(mQuestionIndex).getAttribute(selectedButtonText)
                         .equals("correct")) {
-                    mScore++;
+                    mQuiz.updateScore();
                     Toast.makeText(QuizScreen.this, "Correct", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(QuizScreen.this, "Incorrect", Toast.LENGTH_SHORT).show();
