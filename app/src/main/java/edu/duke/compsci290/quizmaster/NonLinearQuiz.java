@@ -12,11 +12,13 @@ public class NonLinearQuiz implements Quiz {
     private ArrayList<Question> mQuestions;
     private String mQuizName;
     private int mCurrentQuestion;
+    private int mScore;
 
     public NonLinearQuiz(Question[] questions, String quizName, HashSet<String> attributes) {
         mQuestions = new ArrayList<>(Arrays.asList(questions));
         mQuizName = quizName;
         mCurrentQuestion = 0;
+        mScore = 0;
     }
 
     public void updateCurrentQuestionIndex(int index) {
@@ -39,9 +41,14 @@ public class NonLinearQuiz implements Quiz {
         return mQuestions.size();
     }
 
+    public void updateScore() {
+
+        mScore++;
+    }
+
     public String processResult() throws QuizResultException {
         try {
-            return "";
+            return String.valueOf(mScore);
         } catch (Exception e) {
             throw new QuizResultException("Quiz result cannot be processed for Non-Linear Quiz.");
         }

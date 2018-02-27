@@ -11,4 +11,5 @@ public interface Quiz {
     Question getQuestion(int index);
     int getQuestionAmount();
     String processResult() throws QuizResultException;
+    void updateScore();
 }
