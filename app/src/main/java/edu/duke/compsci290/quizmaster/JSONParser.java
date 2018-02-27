@@ -1,5 +1,6 @@
 package edu.duke.compsci290.quizmaster;
 
+import android.support.annotation.Nullable;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -15,6 +16,7 @@ import java.util.HashSet;
 
 public class JSONParser {
     // Quiz parser parses a certain type of quiz using QuizFactory.
+    @Nullable
     public static Quiz parse(String jString, String quizType) {
         try {
             JSONObject all = new JSONObject(jString);
