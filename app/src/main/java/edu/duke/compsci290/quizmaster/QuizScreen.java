@@ -19,6 +19,7 @@ public class QuizScreen extends AppCompatActivity {
     private String mQuizName;
     private TextView mQuestionView;
     private int mQuestionIndex;
+    private Question mCurrentQuestion;
     private String mQuizType;
     private JSONQuizGenerator mJSONQuizGenerator;
     private RadioGroup mChoices;
@@ -28,8 +29,12 @@ public class QuizScreen extends AppCompatActivity {
     private TextView mChoice4;
     private TextView mChoice5;
 
+    // For nonlinear quiz, if the last easy question is correct, we go to the next hard question.
+    // Otherwise we continue with easy question. If the last hard question is correct, we continue
+    // with hard question until hard questions run out. Otherwise, we go back to easy question.
+    private boolean lastQuestionCorrect;
+
     private static String INDEX = "INDEX";
-    private static String SCORE = "SCORE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +71,13 @@ public class QuizScreen extends AppCompatActivity {
         mChoice4 = this.findViewById(R.id.choice4_radio_button);
         mChoice5 = this.findViewById(R.id.choice5_radio_button);
 
-        askQuestion();
+        lastQuestionCorrect = false;
+
+        if (mQuizType.equals("nonlinear")) {
+            askQuestionForNonLinearQuiz();
+        } else {
+            askQuestion();
+        }
 
         mNextButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -78,7 +89,11 @@ public class QuizScreen extends AppCompatActivity {
     @Override
     public void onRestoreInstanceState(Bundle savedInstanceState) {
         mQuestionIndex = savedInstanceState.getInt(INDEX);
-        askQuestion();
+        if (mQuizType.equals("nonlinear")) {
+            askQuestionForNonLinearQuiz();
+        } else {
+            askQuestion();
+        }
         // Restores mQuestionIndex to the current index.
         mQuestionIndex--;
     }
@@ -97,38 +112,39 @@ public class QuizScreen extends AppCompatActivity {
     private void nextQuestion() {
         updateScoreAndToastMessage();
         mChoices.clearCheck();
+        if (mQuizType.equals("nonlinear")) {
+            askQuestionForNonLinearQuiz();
+        }
         if (mQuestionIndex < mQuiz.getQuestionAmount() - 1) {
-            mQuestionIndex++;
-            askQuestion();
+            if (!mQuizType.equals("nonlinear")) {
+                mQuestionIndex++;
+                askQuestion();
+            }
         } else {
             // In case of last question, show the result view.
             Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
+            String displayContent = "";
+            try {
+                displayContent = mQuiz.processResult();
+            } catch (QuizResultException e) {
+                displayContent = "No Result";
+            }
             switch (mQuizType) {
-                // Linear Quiz result page displays the score.
-                case "linear": case "nonlinear":
-                    String score = "";
-                    try {
-                        score = mQuiz.processResult();
-                    } catch (QuizResultException e) {
-                        // Do nothing.
-                    }
-                    intent.putExtra(getApplicationContext().getString(R.string.scorekey),
-                            score + " out of " + Integer.toString(mQuiz.getQuestionAmount()));
+                case "linear":
+                    displayContent += " out of " + Integer.toString(mQuiz.getQuestionAmount());
                     break;
-                // Personality Quiz result page displays the most accurate personality attribute.
-                case "personality":
-                    String processedResult = "";
-                    try {
-                        processedResult = mQuiz.processResult();
-                    } catch (QuizResultException e) {
-                        processedResult = "No Result";
-                    }
-                    intent.putExtra(getApplicationContext().getString(R.string.scorekey),
-                            processedResult);
-                    break;
+                case "nonlinear":
+                    NonLinearQuiz quiz = (NonLinearQuiz) mQuiz;
+                    // The maximum score a user could get is the twice the total number of hard
+                    // questions plus one for the first easy question, according our score
+                    // calculation principle.
+                    displayContent +=
+                            " out of " + Integer.toString(quiz.getHardQuestionCount() * 2 + 1);
                 default:
                     break;
             }
+            intent.putExtra(getApplicationContext().getString(R.string.scorekey),
+                    displayContent);
             intent.putExtra(
                     getApplicationContext().getString(R.string.quiz_name),
                     mQuizName);
@@ -145,17 +161,26 @@ public class QuizScreen extends AppCompatActivity {
         }
         switch (mQuizType) {
             case "linear": case "nonlinear":
-                mQuiz.getQuestion(mQuestionIndex).processChosen(selectedButtonText);
-                if (mQuiz.getQuestion(mQuestionIndex).getAttribute(selectedButtonText)
+                mCurrentQuestion.processChosen(selectedButtonText);
+                if (mCurrentQuestion.getAttribute(selectedButtonText)
                         .equals("correct")) {
+                    lastQuestionCorrect = true;
                     mQuiz.updateScore();
+
+                    // For nonlinear quiz, we give extra point for hard questions.
+                    if (mQuizType.equals("nonlinear") &&
+                            mCurrentQuestion.getDifficulty().equals("hard")) {
+                        mQuiz.updateScore();
+                    }
+
                     Toast.makeText(QuizScreen.this, "Correct", Toast.LENGTH_SHORT).show();
                 } else {
+                    lastQuestionCorrect = false;
                     Toast.makeText(QuizScreen.this, "Incorrect", Toast.LENGTH_SHORT).show();
                 }
                 break;
             case "personality":
-                mQuiz.getQuestion(mQuestionIndex).processChosen(selectedButtonText);
+                mCurrentQuestion.processChosen(selectedButtonText);
                 break;
             default:
                 Log.d("QuizScreen", "quiz type is not specified");
@@ -163,8 +188,38 @@ public class QuizScreen extends AppCompatActivity {
         }
     }
 
+    private void askQuestionForNonLinearQuiz() {
+        NonLinearQuiz nonLinearQuiz = (NonLinearQuiz) mQuiz;
+        Question nextQuestion;
+        if (lastQuestionCorrect) {
+            if (nonLinearQuiz.getHardQuestions().hasNext()) {
+                nextQuestion = nonLinearQuiz.getHardQuestions().next();
+            } else {
+                // Hack QuestionIdx to be the last index to stop the quiz.
+                mQuestionIndex = mQuiz.getQuestionAmount();
+                return;
+            }
+        } else {
+            if (nonLinearQuiz.getEasyQuestions().hasNext()) {
+                nextQuestion = nonLinearQuiz.getEasyQuestions().next();
+            } else {
+                // Hack QuestionIdx to be the last index to stop the quiz.
+                mQuestionIndex = mQuiz.getQuestionAmount();
+                return;
+            }
+        }
+        mCurrentQuestion = nextQuestion;
+        mQuestionView.setText(nextQuestion.getQuestion());
+        mChoice1.setText(nextQuestion.getAnswer(0).getAnswer());
+        mChoice2.setText(nextQuestion.getAnswer(1).getAnswer());
+        mChoice3.setText(nextQuestion.getAnswer(2).getAnswer());
+        mChoice4.setText(nextQuestion.getAnswer(3).getAnswer());
+        mChoice5.setText(nextQuestion.getAnswer(4).getAnswer());
+    }
+
     private void askQuestion() {
         Question q = mQuiz.getQuestion(mQuestionIndex);
+        mCurrentQuestion = q;
         mQuestionView.setText(q.getQuestion());
         mChoice1.setText(q.getAnswer(0).getAnswer());
         mChoice2.setText(q.getAnswer(1).getAnswer());
