@@ -5,33 +5,33 @@
     <string name="quiz_name">quiz_name</string>
     <string name="quiz_1">
         {
-        \"quizName\": \"Linear Quiz 1\",
+        \"quizName\": \"How much do you know about the number 2\",
         \"questions\":
             [
             {
-            \"question\": \"question 1\",
-            \"answers\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
-            \"attributes\" : [\"correct\", \"incorrect\", \"incorrect\", \"incorrect\", \"incorrect\"]
-            },
-            {
-            \"question\": \"question 2\",
-            \"answers\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
-            \"attributes\" : [\"incorrect\", \"correct\", \"incorrect\", \"incorrect\", \"incorrect\"]
-            },
-            {
-            \"question\": \"question 3\",
-            \"answers\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
-            \"attributes\" : [\"correct\", \"incorrect\", \"incorrect\", \"incorrect\", \"incorrect\"]
-            },
-            {
-            \"question\": \"question 4\",
-            \"answers\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
-            \"attributes\" : [\"incorrect\", \"correct\", \"incorrect\", \"incorrect\", \"incorrect\"]
-            },
-            {
-            \"question\": \"question 5\",
-            \"answers\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
+            \"question\": \"What is 2 plus 2\",
+            \"answers\" : [\"1\", \"2\", \"3\", \"4\", \"5\"],
             \"attributes\" : [\"incorrect\", \"incorrect\", \"incorrect\", \"correct\", \"incorrect\"]
+            },
+            {
+            \"question\": \"What is 2 times 2\",
+            \"answers\" : [\"1\", \"2\", \"3\", \"4\", \"5\"],
+            \"attributes\" : [\"incorrect\", \"incorrect\", \"incorrect\", \"correct\", \"incorrect\"]
+            },
+            {
+            \"question\": \"What is 2 squared\",
+            \"answers\" : [\"1\", \"2\", \"3\", \"4\", \"5\"],
+            \"attributes\" : [\"incorrect\", \"incorrect\", \"incorrect\", \"correct\", \"incorrect\"]
+            },
+            {
+            \"question\": \"What is 2 choose 2\",
+            \"answers\" : [\"1\", \"2\", \"3\", \"4\", \"5\"],
+            \"attributes\" : [\"correct\", \"incorrect\", \"incorrect\", \"incorrect\", \"incorrect\"]
+            },
+            {
+            \"question\": \"What is log base 2 of 2\",
+            \"answers\" : [\"1\", \"2\", \"3\", \"4\", \" 5\"],
+            \"attributes\" : [\"correct\", \"incorrect\", \"incorrect\", \"incorrect\", \"incorrect\"]
             }
             ]
         }
@@ -39,33 +39,33 @@
 
     <string name="personality_quiz_1">
         {
-        \"quizName\": \"Personality Quiz 1\",
+        \"quizName\": \"Which Ice Cream Flavor Are You\",
         \"questions\":
             [
             {
-            \"question\": \"personality question 1\",
-            \"answers\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
-            \"attributes\" : [\"type 1\", \"type 2\", \"type 3\", \"type 4\", \"type 5\"]
+            \"question\": \"What is your favorite color\",
+            \"answers\" : [\"Pink\", \"Blue\", \"Black\", \"Red\", \"Purple\"],
+            \"attributes\" : [\"Strawberry\", \"Chocolate\", \"Coffee\", \"Cookies and Cream\", \"Vanilla\"]
             },
             {
-            \"question\": \"personality question 2\",
-            \"answers\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
-            \"attributes\" : [\"type 1\", \"type 2\", \"type 3\", \"type 4\", \"type 5\"]
+            \"question\": \"What is your favorite subject\",
+            \"answers\" : [\"Math\", \"English\", \"Science\", \"History\", \"Art\"],
+            \"attributes\" : [\"Vanilla\", \"Strawberry\", \"Chocolate\", \"Coffee\", \"Cookies and Cream\"]
             },
             {
-            \"question\": \"personality question 3\",
-            \"answers\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
-            \"attributes\" : [\"type 1\", \"type 2\", \"type 3\", \"type 4\", \"type 5\"]
+            \"question\": \"Around how late do you usually go to sleep\",
+            \"answers\" : [\"9pm\", \"10pm\", \"11pm\", \"12am\", \"after 1am\"],
+            \"attributes\" : [\"Vanilla\", \"Strawberry\", \"Cookies and Cream\", \"Chocolate\", \"Coffee\"]
             },
             {
-            \"question\": \"personality question 4\",
-            \"answers\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
-            \"attributes\" : [\"type 1\", \"type 2\", \"type 3\", \"type 4\", \"type 5\"]
+            \"question\": \"What is your favorite breakfast food\",
+            \"answers\" : [\"Cereal\", \"Omelette\", \"Bagel\", \"Eggs and Bacon\", \"Pancakes\"],
+            \"attributes\" : [\"Cookies and Cream\", \"Strawberry\", \"Vanilla\", \"Coffee\", \"Chocolate\"]
             },
             {
-            \"question\": \"personality question 5\",
-            \"answers\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
-            \"attributes\" : [\"type 1\", \"type 2\", \"type 3\", \"type 4\", \"type 5\"]
+            \"question\": \"Where would you go for vacation\",
+            \"answers\" : [\"Tokyo\", \"Paris\", \"London\", \"Rome\", \"Hawaii\"],
+            \"attributes\" : [\"Strawberry\", \"Vanilla\", \"Coffee\", \"Cookies and Cream\", \"Chocolate\"]
             }
             ]
         }
@@ -73,36 +73,36 @@
 
     <string name="non_linear_quiz_1">
         {
-        \"quizName\": \"Non-Linear Quiz 1\",
+        \"quizName\": \"Country Capitals Quiz\",
         \"questions\":
             [
             {
-            \"question\": \"question 1\",
-            \"answers\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
+            \"question\": \"What is the capital of the USA\",
+            \"answers\" : [\"Washington DC\", \"New York City\", \"Los Angeles\", \"Philadelphia\", \"Boston\"],
             \"attributes\" : [\"correct\", \"incorrect\", \"incorrect\", \"incorrect\", \"incorrect\"],
             \"difficulty\" : "easy"
             },
             {
-            \"question\": \"question 2\",
-            \"answers\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
+            \"question\": \"What is the capital of France\",
+            \"answers\" : [\"London\", \"Paris\", \"Milan\", \"Berlin\", \"Barcelona\"],
             \"attributes\" : [\"incorrect\", \"correct\", \"incorrect\", \"incorrect\", \"incorrect\"],
             \"difficulty\" : "easy"
             },
             {
-            \"question\": \"question 3\",
-            \"answers\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
+            \"question\": \"What is the capital of Canada\",
+            \"answers\" : [\"Ottawa\", \"Vancouver\", \"Montreal\", \"Toronto\", \"Halifax\"],
             \"attributes\" : [\"correct\", \"incorrect\", \"incorrect\", \"incorrect\", \"incorrect\"],
             \"difficulty\" : "hard"
             },
             {
-            \"question\": \"question 4\",
-            \"answers\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
+            \"question\": \"What is the capital of Uruguay\",
+            \"answers\" : [\"Asuncion\", \"Montevideo\", \"Quito\", \"Bogota\", \"La Paz\"],
             \"attributes\" : [\"incorrect\", \"correct\", \"incorrect\", \"incorrect\", \"incorrect\"],
             \"difficulty\" : "hard"
             },
             {
-            \"question\": \"question 5\",
-            \"answers\" : [\"answer 1\", \"answer 2\", \"answer 3\", \"answer 4\", \"answer 5\"],
+            \"question\": \"What is the capital of Japan\",
+            \"answers\" : [\"Beijing\", \"Seoul\", \"Kyoto\", \"Tokyo\", \"Osaka\"],
             \"attributes\" : [\"incorrect\", \"incorrect\", \"incorrect\", \"correct\", \"incorrect\"],
             \"difficulty\" : "easy"
             }
