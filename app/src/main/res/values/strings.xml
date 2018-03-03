@@ -130,6 +130,24 @@
             \"answers\" : [\"Beijing\", \"Seoul\", \"Kyoto\", \"Tokyo\", \"Osaka\"],
             \"attributes\" : [\"incorrect\", \"incorrect\", \"incorrect\", \"correct\", \"incorrect\"],
             \"difficulty\" : "easy"
+            },
+            {
+            \"question\": \"What is the capital of Egypt\",
+            \"answers\" : [\"Alexandria\", \"Gaza\", \"Cairo\", \"Nile\", \"Beirut\"],
+            \"attributes\" : [\"incorrect\", \"incorrect\", \"correct\", \"incorrect\", \"incorrect\"],
+            \"difficulty\" : "hard"
+            },
+            {
+            \"question\": \"What is the capital of Spain\",
+            \"answers\" : [\"Madrid\", \"Barcelona\", \"Lisbon\", \"Buenos Aires\", \"Sao Paulo\"],
+            \"attributes\" : [\"correct\", \"incorrect\", \"incorrect\", \"incorrect\", \"incorrect\"],
+            \"difficulty\" : "easy"
+            },
+            {
+            \"question\": \"What is the capital of Ecuador\",
+            \"answers\" : [\"Quito\", \"Lima\", \"Santo Domingo\", \"Tegucigalpa\", \"Suriname\"],
+            \"attributes\" : [\"correct\", \"incorrect\", \"incorrect\", \"incorrect\", \"incorrect\"],
+            \"difficulty\" : "hard"
             }
             ]
         }
