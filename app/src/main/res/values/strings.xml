@@ -66,6 +66,31 @@
             \"question\": \"Where would you go for vacation\",
             \"answers\" : [\"Tokyo\", \"Paris\", \"London\", \"Rome\", \"Hawaii\"],
             \"attributes\" : [\"Strawberry\", \"Vanilla\", \"Coffee\", \"Cookies and Cream\", \"Chocolate\"]
+            },
+            {
+            \"question\": \"Which nontraditional ice cream flavor would you try\",
+            \"answers\" : [\"Green Tea\", \"Red Bean\", \"Taro\", \"Black Sesame\", \"Soda\"],
+            \"attributes\" : [\"Cookies and Cream\", \"Strawberry\", \"Vanilla\", \"Coffee\", \"Chocolate\"]
+            },
+            {
+            \"question\": \"Which non ice cream dessert is your favorite\",
+            \"answers\" : [\"Brownies\", \"Cookies\", \"Cupcakes\", \"Pie\", \"Smoothie\"],
+            \"attributes\" : [\"Chocolate\", \"Cookies and Cream\", \"Vanilla\", \"Coffee\", \"Strawberry\"]
+            },
+            {
+            \"question\": \"What is your favorite warm article of clothing\",
+            \"answers\" : [\"Socks\", \"Scarves\", \"Sweaters\", \"Mittens\", \"Earmuffs\"],
+            \"attributes\" : [\"Chocolate\", \"Coffee\", \"Vanilla\", \"Cookies and Cream\", \"Strawberry\"]
+            },
+            {
+            \"question\": \"What is your favorite social media app?\",
+            \"answers\" : [\"Snapchat\", \"Facebook\", \"Instagram\", \"Twitter\", \"YouTube\"],
+            \"attributes\" : [\"Chocolate\", \"Vanilla\", \"Cookies and Cream\", \"Coffee\", \"Strawberry\"]
+            },
+            {
+            \"question\": \"Where is your favorite place to eat at Duke?\",
+            \"answers\" : [\"Divinity Cafe\", \"Twinnies\", \"Marketplace\", \"Pitchforks\", \"Tandoor\"],
+            \"attributes\" : [\"Cookies and Cream\", \"Coffee\", \"Vanilla\", \"Chocolate\", \"Strawberry\"]
             }
             ]
         }
