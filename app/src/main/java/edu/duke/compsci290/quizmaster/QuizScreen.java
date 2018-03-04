@@ -46,7 +46,8 @@ public class QuizScreen extends AppCompatActivity {
         mQuizIdentifier = String.valueOf(receivedIntent.getStringExtra("quiz_name_key"));
         mQuizType = String.valueOf(receivedIntent.getStringExtra("quiz_type_key"));
         try {
-            int quizId = getApplicationContext().getResources().getIdentifier(mQuizIdentifier, "string", getApplicationContext().getPackageName());
+            int quizId = getApplicationContext().getResources().getIdentifier(
+                    mQuizIdentifier, "string", getApplicationContext().getPackageName());
             mJSONQuizGenerator = new JSONQuizGenerator(quizId);
         } catch (MalformedURLException e) {
             Log.d("APPMAIN","could not create JSON quiz");

@@ -7,19 +7,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-import edu.duke.compsci290.quizmaster.Answer;
-import edu.duke.compsci290.quizmaster.LinearQuiz;
-import edu.duke.compsci290.quizmaster.PersonalityQuiz;
-import edu.duke.compsci290.quizmaster.Question;
-
-
-import org.junit.Before;
-import org.junit.Test;
-
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-
 import static junit.framework.Assert.assertEquals;
 
 /**
@@ -55,7 +42,8 @@ public class PersonalityQuizUnitTest {
         mAttributes = new HashSet<String>();
         mAttributes.add(mAttribute1);
         mAttributes.add(mAttribute2);
-        mPersonalityQuiz = new PersonalityQuiz(mQuestions.toArray(new Question[mQuestions.size()]), mQuizName, mAttributes);
+        mPersonalityQuiz = new PersonalityQuiz(
+                mQuestions.toArray(new Question[mQuestions.size()]), mQuizName, mAttributes);
     }
 
     @Test
@@ -84,22 +72,12 @@ public class PersonalityQuizUnitTest {
     @Test
     public void getQuestion() throws Exception {
         assertEquals(mPersonalityQuiz.getQuestion(0), mQuestions.get(0));
-        assertEquals(mPersonalityQuiz.getQuestion(mQuestions.size()-1), mQuestions.get(mQuestions.size()-1));
+        assertEquals(mPersonalityQuiz.getQuestion(mQuestions.size()-1),
+                mQuestions.get(mQuestions.size()-1));
     }
 
     @Test
     public void getQuestionAmount() throws Exception{
         assertEquals(mPersonalityQuiz.getQuestionAmount(), mQuestions.size());
     }
-
-    @Test
-    public void updateScore() throws Exception{
-    }
-
-    @Test
-    public void processResult() throws Exception{
-
-    }
-
-
 }

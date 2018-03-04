@@ -7,19 +7,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-import edu.duke.compsci290.quizmaster.Answer;
-import edu.duke.compsci290.quizmaster.LinearQuiz;
-import edu.duke.compsci290.quizmaster.PersonalityQuiz;
-import edu.duke.compsci290.quizmaster.Question;
-
-
-import org.junit.Before;
-import org.junit.Test;
-
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-
 import static junit.framework.Assert.assertEquals;
 
 /**
@@ -55,7 +42,8 @@ public class NonlinearQuizUnitTest {
         mAttributes = new HashSet<String>();
         mAttributes.add(mAttribute1);
         mAttributes.add(mAttribute2);
-        mNonlinearQuiz = new NonLinearQuiz(mQuestions.toArray(new Question[mQuestions.size()]), mQuizName, mAttributes);
+        mNonlinearQuiz = new NonLinearQuiz(
+                mQuestions.toArray(new Question[mQuestions.size()]), mQuizName, mAttributes);
     }
 
     @Test
@@ -65,7 +53,6 @@ public class NonlinearQuizUnitTest {
         mNonlinearQuiz.updateCurrentQuestionIndex(mQuestions.size()-1);
         assertEquals(mCurrentQuestion, mQuestions.size()-1);
     }
-
 
     @Test
     public void getQuizName() throws Exception{
@@ -80,7 +67,8 @@ public class NonlinearQuizUnitTest {
     @Test
     public void getQuestion() throws Exception {
         assertEquals(mNonlinearQuiz.getQuestion(0), mQuestions.get(0));
-        assertEquals(mNonlinearQuiz.getQuestion(mQuestions.size()-1), mQuestions.get(mQuestions.size()-1));
+        assertEquals(mNonlinearQuiz.getQuestion(mQuestions.size()-1),
+                mQuestions.get(mQuestions.size()-1));
     }
 
     @Test
@@ -99,26 +87,4 @@ public class NonlinearQuizUnitTest {
     public void processResult() throws Exception{
         assertEquals(mNonlinearQuiz.processResult(), String.valueOf(mScore));
     }
-
-    @Test
-    public void buildEasyAndHardQuestionIterator() throws Exception{
-
-    }
-
-    @Test
-    public void getEasyQuestions() throws Exception{
-
-    }
-
-    @Test
-    public void getHardQuestions() throws Exception{
-
-    }
-
-    @Test
-    public void getHardQuestionsCount() throws Exception{
-
-    }
-
-
 }

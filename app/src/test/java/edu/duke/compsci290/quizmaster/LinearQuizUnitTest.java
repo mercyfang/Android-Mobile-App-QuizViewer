@@ -35,14 +35,15 @@ public class LinearQuizUnitTest {
         answers.add(new Answer(mAnswer2, mAttribute2));
         mAnswers = answers;
         mQuestion = new Question(mQuest, answers);
-        mQuestions = new ArrayList<Question>();
+        mQuestions = new ArrayList<>();
         mQuestions.add(mQuestion);
         mCurrentQuestion = 0;
         mScore = 0;
-        mAttributes = new HashSet<String>();
+        mAttributes = new HashSet<>();
         mAttributes.add(mAttribute1);
         mAttributes.add(mAttribute2);
-        mLinearQuiz = new LinearQuiz(mQuestions.toArray(new Question[mQuestions.size()]), mQuizName, mAttributes);
+        mLinearQuiz = new LinearQuiz(
+                mQuestions.toArray(new Question[mQuestions.size()]), mQuizName, mAttributes);
     }
 
     @Test
@@ -71,7 +72,8 @@ public class LinearQuizUnitTest {
     @Test
     public void getQuestion() throws Exception {
         assertEquals(mLinearQuiz.getQuestion(0), mQuestions.get(0));
-        assertEquals(mLinearQuiz.getQuestion(mQuestions.size()-1), mQuestions.get(mQuestions.size()-1));
+        assertEquals(mLinearQuiz.getQuestion(mQuestions.size()-1),
+                mQuestions.get(mQuestions.size()-1));
     }
 
     @Test
@@ -90,6 +92,4 @@ public class LinearQuizUnitTest {
     public void processResult() throws Exception{
         assertEquals(mLinearQuiz.processResult(), String.valueOf(mScore));
     }
-
-
 }

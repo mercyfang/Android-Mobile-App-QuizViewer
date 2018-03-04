@@ -20,7 +20,5 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView rv = findViewById(R.id.activity_main_recycler_view);
         rv.setAdapter(new QuizAdapter(this, quizzes, quizTypes));
         rv.setLayoutManager(new LinearLayoutManager(this));
-
-
     }
 }

@@ -64,7 +64,7 @@ public class PersonalityQuiz implements Quiz {
                             attribute, attributeCount.getOrDefault(attribute, 0) + 1);
                 }
             }
-            // Sort the attributes map by count.
+            // Sorts the attributes map by count.
             List<String> sortedAttributeCount = attributeCount.entrySet().stream()
                     .sorted(Map.Entry.comparingByValue((Integer i1, Integer i2) -> i2 - i1))
                     .map(Map.Entry::getKey)
