@@ -1,6 +1,7 @@
 package edu.duke.compsci290.quizmaster;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -40,6 +41,7 @@ public class QuizScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_quiz_screen);
 
         Intent receivedIntent = this.getIntent();
@@ -84,6 +86,18 @@ public class QuizScreen extends AppCompatActivity {
     }
 
     @Override
+    public void onStop() {
+        super.onStop();
+        // Restores the instance when application gets killed or in case of going to ResultScreen,
+        // we remove the key value pairs in ResultScreen class.
+        SharedPreferences prefs = getSharedPreferences("QuizScreen", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("quiz_name_key", mQuizName);
+        editor.putString("quiz_type_key", mQuizType);
+        editor.commit();
+    }
+
+    @Override
     public void onRestoreInstanceState(Bundle savedInstanceState) {
         mQuestionIndex = savedInstanceState.getInt(INDEX);
         if (mQuizType.equals("nonlinear")) {
@@ -103,6 +117,7 @@ public class QuizScreen extends AppCompatActivity {
 
     @Override
     protected void onStart() {
+        Log.d("debug onStart", "in");
         super.onStart();
     }
 
@@ -144,7 +159,7 @@ public class QuizScreen extends AppCompatActivity {
                     displayContent);
             intent.putExtra(
                     getApplicationContext().getString(R.string.quiz_name),
-                    mQuizName);
+                    processQuizName(mQuizName));
             getApplicationContext().startActivity(intent);
         }
     }
@@ -223,5 +238,9 @@ public class QuizScreen extends AppCompatActivity {
         mChoice3.setText(q.getAnswer(2).getAnswer());
         mChoice4.setText(q.getAnswer(3).getAnswer());
         mChoice5.setText(q.getAnswer(4).getAnswer());
+    }
+
+    private String processQuizName(String quizName) {
+        return quizName.replaceAll("_", " ");
     }
 }

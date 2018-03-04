@@ -1,18 +1,32 @@
 package edu.duke.compsci290.quizmaster;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
-
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Restores state for QuizScreen if present.
+        SharedPreferences prefs = getSharedPreferences("QuizScreen", MODE_PRIVATE);
+        String quizName = prefs.getString("quiz_name_key", "");
+        String quizType = prefs.getString("quiz_type_key", "");
+
+        if (!quizName.isEmpty() && !quizType.isEmpty()) {
+            Intent intent = new Intent(getApplicationContext(), QuizScreen.class);
+            intent.putExtra("quiz_name_key", quizName);
+            intent.putExtra("quiz_type_key", quizType);
+            getApplicationContext().startActivity(intent);
+            return;
+        }
+
+        // Fails to get SharedPreferences, create main activity.
         setContentView(R.layout.activity_main);
 
         String[] quizzes = this.getResources().getStringArray(R.array.quiz_names);

@@ -22,7 +22,7 @@
 
     <string name="How_Much_Do_You_Know_About_The_Number_2">
         {
-        \"quizName\": \"How much do you know about the number 2?\",
+        \"quizName\": \"How_Much_Do_You_Know_About_The_Number_2\",
         \"questions\":
             [
             {
@@ -56,7 +56,7 @@
 
     <string name="The_2017_Oscars_Quiz">
         {
-        \"quizName\": \"2017 Oscars Quiz\",
+        \"quizName\": \"The_2017_Oscars_Quiz\",
         \"questions\":
             [
             {
@@ -90,7 +90,7 @@
 
     <string name="Which_Ice_Cream_Flavor_Are_You">
         {
-        \"quizName\": \"Which Ice Cream Flavor Are You\",
+        \"quizName\": \"Which_Ice_Cream_Flavor_Are_You\",
         \"questions\":
             [
             {
@@ -149,7 +149,7 @@
 
     <string name="Which_Game_of_Thrones_House_Would_You_Be_In">
         {
-        \"quizName\": \"Which Game of Thrones House Would You Be In\",
+        \"quizName\": \"Which_Game_of_Thrones_House_Would_You_Be_In\",
         \"questions\":
             [
             {
@@ -208,7 +208,7 @@
 
     <string name="Country_Capitals_Quiz">
         {
-        \"quizName\": \"Country Capitals Quiz\",
+        \"quizName\": \"Country_Capitals_Quiz\",
         \"questions\":
             [
             {
