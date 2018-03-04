@@ -1,36 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    android:orientation="vertical">
-    <Button
-        android:id="@+id/linear_quiz_button"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textAllCaps="false"
-        android:text="Linear Quiz"
-        />
-    <Button
-        android:id="@+id/personality_quiz_button"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textAllCaps="false"
-        android:text="Personality Quiz"
-        />
-    <Button
-        android:id="@+id/non_linear_quiz_button"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Non Linear Quiz"
-        android:textAllCaps="false"
-        />
-    <Button
-        android:id="@+id/new_quiz_button"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="New Quiz"
-        android:textAllCaps="false"
-        />
-</LinearLayout>
+    android:layout_height="match_parent"
+    tools:context="edu.duke.compsci290.albumviewer.MainActivity">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/activity_main_recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+</android.support.constraint.ConstraintLayout>

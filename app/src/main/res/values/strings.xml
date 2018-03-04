@@ -3,6 +3,21 @@
     <string name="scorekey">score_key</string>
     <string name="quiz_type">quiz_type</string>
     <string name="quiz_name">quiz_name</string>
+
+    <string-array name="quiz_names">
+        <item>quiz_1</item>
+        <item>personality_quiz_1</item>
+        <item>personality_quiz_2</item>
+        <item>non_linear_quiz_1</item>
+    </string-array>
+
+    <string-array name="quiz_types">
+        <item>linear</item>
+        <item>personality</item>
+        <item>personality</item>
+        <item>nonlinear</item>
+    </string-array>
+
     <string name="quiz_1">
         {
         \"quizName\": \"How much do you know about the number 2\",
@@ -91,6 +106,65 @@
             \"question\": \"Where is your favorite place to eat at Duke?\",
             \"answers\" : [\"Divinity Cafe\", \"Twinnies\", \"Marketplace\", \"Pitchforks\", \"Tandoor\"],
             \"attributes\" : [\"Cookies and Cream\", \"Coffee\", \"Vanilla\", \"Chocolate\", \"Strawberry\"]
+            }
+            ]
+        }
+    </string>
+
+    <string name="personality_quiz_2">
+        {
+        \"quizName\": \"Which Game of Thrones House Would You Be In\",
+        \"questions\":
+            [
+            {
+            \"question\": \"Choose a color.\",
+            \"answers\" : [\"Red\", \"Blue\", \"Yellow\", \"Green\", \"Black\"],
+            \"attributes\" : [\"Lannister\", \"Stark\", \"Martell\", \"Tyrell\", \"Targaryen\"]
+            },
+            {
+            \"question\": \"Choose a metallic color\",
+            \"answers\" : [\"Silver\", \"Rose Gold\", \"Platinum\", \"Gold\", \"Bronze\"],
+            \"attributes\" : [\"Stark\", \"Tyrell\", \"Targaryen\", \"Lannister\", \"Martell\"]
+            },
+            {
+            \"question\": \"Choose a mythical creature\",
+            \"answers\" : [\"Dragon\", \"Griffin\", \"Unicorn\", \"Fairy\", \"Chimera\"],
+            \"attributes\" : [\"Targaryen\", \"Lannister\", \"Stark\", \"Tyrell\", \"Martell\"]
+            },
+            {
+            \"question\": \"Choose a weapon\",
+            \"answers\" : [\"Sword\", \"Poison\", \"Magic\", \"Bow and Arrow\", \"Spear\"],
+            \"attributes\" : [\"Stark\", \"Martell\", \"Targaryen\", \"Tyrell\", \"Lannister\"]
+            },
+            {
+            \"question\": \"Choose a direction\",
+            \"answers\" : [\"North\", \"South\", \"East\", \"West\", \"Center\"],
+            \"attributes\" : [\"Stark\", \"Martell\", \"Targaryen\", \"Tyrell\", \"Lannister\"]
+            },
+            {
+            \"question\": \"Choose an environment\",
+            \"answers\" : [\"Desert\", \"Forest\", \"Tundra\", \"Tropics\", \"Mountain\"],
+            \"attributes\" : [\"Martell\", \"Tyrell\", \"Stark\", \"Targaryen\", \"Lannister\"]
+            },
+            {
+            \"question\": \"Choose an element\",
+            \"answers\" : [\"Strength\", \"Telekinesis\", \"Mind Control\", \"Fire\", \"Invisibility\"],
+            \"attributes\" : [\"Stark\", \"Tyrell\", \"Lannister\", \"Targaryen\", \"Martell\"]
+            },
+            {
+            \"question\": \"Choose an Ivy League school\",
+            \"answers\" : [\"Harvard\", \"Princeton\", \"Yale\", \"Brown\", \"Penn\"],
+            \"attributes\" : [\"Targaryen\", \"Lannister\", \"Stark\", \"Tyrell\", \"Martell\"]
+            },
+            {
+            \"question\": \"Choose a Harrry Potter house hybrid\",
+            \"answers\" : [\"Slytherclaw\", \"Gryffinpuff\", \"Ravenpuff\", \"Gryffinclaw\", \"Slytherdor\"],
+            \"attributes\" : [\"Martell\", \"Stark\", \"Tyrell\", \"Targaryen\", \"Lannister\"]
+            },
+            {
+            \"question\": \"Choose a Game of Thrones villian\",
+            \"answers\" : [\"Littlefinger\", \"Cersei\", \"Ramsay Bolton\", \"Joffrey Baratheon\", \"Euron Greyjoy\"],
+            \"attributes\" : [\"Stark\", \"Lannister\", \"\", \"Targaryen\", \"Martell\"]
             }
             ]
         }
