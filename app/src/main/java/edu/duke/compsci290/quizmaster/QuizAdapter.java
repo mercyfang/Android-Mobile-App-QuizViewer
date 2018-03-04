@@ -82,7 +82,7 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(ViewHolder holder, int position){
         // set text view
-        holder.mQuizButton.setText(mQuizzes[position]);
+        holder.mQuizButton.setText(mQuizzes[position].replaceAll("_", " "));
 
 
     }

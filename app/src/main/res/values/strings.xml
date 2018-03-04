@@ -5,22 +5,24 @@
     <string name="quiz_name">quiz_name</string>
 
     <string-array name="quiz_names">
-        <item>quiz_1</item>
-        <item>personality_quiz_1</item>
-        <item>personality_quiz_2</item>
-        <item>non_linear_quiz_1</item>
+        <item>How_Much_Do_You_Know_About_The_Number_2</item>
+        <item>The_2017_Oscars_Quiz</item>
+        <item>Which_Ice_Cream_Flavor_Are_You</item>
+        <item>Which_Game_of_Thrones_House_Would_You_Be_In</item>
+        <item>Country_Capitals_Quiz</item>
     </string-array>
 
     <string-array name="quiz_types">
+        <item>linear</item>
         <item>linear</item>
         <item>personality</item>
         <item>personality</item>
         <item>nonlinear</item>
     </string-array>
 
-    <string name="quiz_1">
+    <string name="How_Much_Do_You_Know_About_The_Number_2">
         {
-        \"quizName\": \"How much do you know about the number 2\",
+        \"quizName\": \"How much do you know about the number 2?\",
         \"questions\":
             [
             {
@@ -52,7 +54,41 @@
         }
     </string>
 
-    <string name="personality_quiz_1">
+    <string name="The_2017_Oscars_Quiz">
+        {
+        \"quizName\": \"2017 Oscars Quiz\",
+        \"questions\":
+            [
+            {
+            \"question\": \"Which movie won best picture?\",
+            \"answers\" : [\"Arrival\", \"Fences\", \"Hidden Figures\", \"Lala Land\", \"Moonlight\"],
+            \"attributes\" : [\"incorrect\", \"incorrect\", \"incorrect\", \"incorrect\", \"correct\"]
+            },
+            {
+            \"question\": \"Which actor won best actor?\",
+            \"answers\" : [\"Casey Affleck\", \"Andrew Garfield\", \"Ryan Gosling\", \"Viggo Mortenson\", \"Denzel Washington\"],
+            \"attributes\" : [\"correct\", \"incorrect\", \"incorrect\", \"incorrect\", \"incorrect\"]
+            },
+            {
+            \"question\": \"Which actress won best actress?\",
+            \"answers\" : [\"Isabelle Hubbert\", \"Ruth Negga\", \"Natalie Portman\", \"Emma Stone\", \"Meryl Streep\"],
+            \"attributes\" : [\"incorrect\", \"incorrect\", \"incorrect\", \"correct\", \"incorrect\"]
+            },
+            {
+            \"question\": \"Which movie won best animated film?\",
+            \"answers\" : [\"Kubo and the Two Strings\", \"Moana\", \"My Life as a Zucchini\", \"The Red Turtle\", \"Zootopia\"],
+            \"attributes\" : [\"incorrect\", \"incorrect\", \"incorrect\", \"incorrect\", \"correct\"]
+            },
+            {
+            \"question\": \"Which movie won best director?\",
+            \"answers\" : [\"Arrival\", \"Hacksaw Ridge\", \"LaLa Land\", \"Manchester by the Sea\", \"Moonlight\"],
+            \"attributes\" : [\"incorrect\", \"incorrect\", \"correct\", \"incorrect\", \"incorrect\"]
+            }
+            ]
+        }
+    </string>
+
+    <string name="Which_Ice_Cream_Flavor_Are_You">
         {
         \"quizName\": \"Which Ice Cream Flavor Are You\",
         \"questions\":
@@ -111,7 +147,7 @@
         }
     </string>
 
-    <string name="personality_quiz_2">
+    <string name="Which_Game_of_Thrones_House_Would_You_Be_In">
         {
         \"quizName\": \"Which Game of Thrones House Would You Be In\",
         \"questions\":
@@ -170,7 +206,7 @@
         }
     </string>
 
-    <string name="non_linear_quiz_1">
+    <string name="Country_Capitals_Quiz">
         {
         \"quizName\": \"Country Capitals Quiz\",
         \"questions\":
