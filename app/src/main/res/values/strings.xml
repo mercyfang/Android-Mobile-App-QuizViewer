@@ -3,6 +3,9 @@
     <string name="scorekey">score_key</string>
     <string name="quiz_type">quiz_type</string>
     <string name="quiz_name">quiz_name</string>
+    <string name="ok">Ok</string>
+    <string name="complete">Complete</string>
+    <string name="incomplete">Incomplete</string>
 
     <string-array name="quiz_names">
         <item>How_Much_Do_You_Know_About_The_Number_2</item>

@@ -8,10 +8,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity {
+    public static MainActivity mainActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Sets mainActivity to enable QuizAdapter access the ApplicationContext.
+        mainActivity = this;
 
         // Restores state for QuizScreen if present.
         SharedPreferences prefs = getSharedPreferences("QuizScreen", MODE_PRIVATE);

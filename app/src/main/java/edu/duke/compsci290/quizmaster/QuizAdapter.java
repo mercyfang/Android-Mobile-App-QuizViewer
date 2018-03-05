@@ -19,6 +19,9 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder>{
     private String[] mQuizTypes;
     private String[] mQuizzesCompletion;
 
+    private final String complete = MainActivity.mainActivity.getString(R.string.complete);
+    private final String incomplete = MainActivity.mainActivity.getString(R.string.incomplete);
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         LinearLayout mLinearLayout;
         Button mQuizButton;
@@ -76,7 +79,13 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder>{
         mQuizCompletionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                String score = mQuizzesCompletion[quizHolder.getAdapterPosition()];
+                String title = score.equals("-1") ? incomplete : complete;
+                QuizCompletionScoreDialogFragment dialogFragment =
+                        QuizCompletionScoreDialogFragment.newInstance(
+                                score, title, quizHolder.getAdapterPosition());
+                dialogFragment.show(
+                        MainActivity.mainActivity.getFragmentManager(),"quizCompletionDialog");
             }
         });
         return quizHolder;
@@ -86,9 +95,9 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder>{
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.mQuizButton.setText(mQuizzes[position].replaceAll("_", " "));
         if (mQuizzesCompletion[position].equals("-1")) {
-            holder.mQuizCompletionButton.setText("Incomplete");
+            holder.mQuizCompletionButton.setText(incomplete);
         } else {
-            holder.mQuizCompletionButton.setText("Complete");
+            holder.mQuizCompletionButton.setText(complete);
         }
     }
 }
