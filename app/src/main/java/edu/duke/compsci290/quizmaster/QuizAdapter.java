@@ -17,23 +17,29 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder>{
     private Context mContext;
     private String[] mQuizzes;
     private String[] mQuizTypes;
+    private String[] mQuizzesCompletion;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         LinearLayout mLinearLayout;
         Button mQuizButton;
+        Button mQuizCompletionButton;
 
         public ViewHolder(View itemView) {
             super(itemView);
             // Connects UI component
             this.mQuizButton = itemView.findViewById(R.id.quiz_button);
             this.mLinearLayout = itemView.findViewById(R.id.quiz_holder_linear_layout);
+            this.mQuizCompletionButton = itemView.findViewById(R.id.quiz_completion_button);
         }
     }
 
-    public QuizAdapter(final Context context, String[] quizzes, String[] quizTypes) {
+    public QuizAdapter(
+            final Context context, String[] quizzes, String[] quizTypes, String quizzesCompletion) {
         this.mQuizzes = quizzes;
         this.mQuizTypes = quizTypes;
         this.mContext = context;
+        // We store quizzes completion score using -1 as incomplete and join the scores using ';'.
+        mQuizzesCompletion = quizzesCompletion.split(";");
     }
 
     @Override
@@ -48,6 +54,7 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder>{
         View row = mInflater.inflate(R.layout.quiz_holder, parent, false);
         final ViewHolder quizHolder= new ViewHolder(row);
         final Button mQuizButton = row.findViewById(R.id.quiz_button);
+        final Button mQuizCompletionButton = row.findViewById(R.id.quiz_completion_button);
 
         mQuizButton.setOnClickListener(new View.OnClickListener() {
             private void openQuiz(String quizName, String quizType) {
@@ -65,11 +72,23 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder>{
                         mQuizTypes[quizHolder.getAdapterPosition()]);
             }
         });
+
+        mQuizCompletionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
         return quizHolder;
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.mQuizButton.setText(mQuizzes[position].replaceAll("_", " "));
+        if (mQuizzesCompletion[position].equals("-1")) {
+            holder.mQuizCompletionButton.setText("Incomplete");
+        } else {
+            holder.mQuizCompletionButton.setText("Complete");
+        }
     }
 }

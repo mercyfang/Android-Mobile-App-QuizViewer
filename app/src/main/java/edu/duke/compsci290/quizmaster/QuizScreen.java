@@ -117,7 +117,6 @@ public class QuizScreen extends AppCompatActivity {
 
     @Override
     protected void onStart() {
-        Log.d("debug onStart", "in");
         super.onStart();
     }
 

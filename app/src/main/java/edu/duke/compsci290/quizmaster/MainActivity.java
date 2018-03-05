@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("QuizScreen", MODE_PRIVATE);
         String quizName = prefs.getString("quiz_name_key", "");
         String quizType = prefs.getString("quiz_type_key", "");
-
+        String quizzesCompletion = prefs.getString("quiz_completion", "");
         if (!quizName.isEmpty() && !quizType.isEmpty()) {
             Intent intent = new Intent(getApplicationContext(), QuizScreen.class);
             intent.putExtra("quiz_name_key", quizName);
@@ -25,14 +25,25 @@ public class MainActivity extends AppCompatActivity {
             getApplicationContext().startActivity(intent);
             return;
         }
-
         // Fails to get SharedPreferences, create main activity.
         setContentView(R.layout.activity_main);
 
         String[] quizzes = this.getResources().getStringArray(R.array.quiz_names);
         String[] quizTypes = this.getResources().getStringArray(R.array.quiz_types);
+
+        if (quizzesCompletion.isEmpty()) {
+            for (int i = 0; i < quizzes.length; i++) {
+                quizzesCompletion += "-1;";
+            }
+            quizzesCompletion = quizzesCompletion.substring(0, quizzesCompletion.length() - 1);
+            // Saves quiz completion scores in SharedPreferences the first time.
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString("quiz_completion", quizzesCompletion);
+            editor.commit();
+        }
+
         RecyclerView rv = findViewById(R.id.activity_main_recycler_view);
-        rv.setAdapter(new QuizAdapter(this, quizzes, quizTypes));
+        rv.setAdapter(new QuizAdapter(this, quizzes, quizTypes, quizzesCompletion));
         rv.setLayoutManager(new LinearLayoutManager(this));
     }
 }
