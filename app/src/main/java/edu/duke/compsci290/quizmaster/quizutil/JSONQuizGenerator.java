@@ -1,8 +1,10 @@
-package edu.duke.compsci290.quizmaster;
+package edu.duke.compsci290.quizmaster.quizutil;
 
 import android.content.Context;
 
 import java.net.MalformedURLException;
+
+import edu.duke.compsci290.quizmaster.QuizScreen;
 
 /**
  * Created by mercyfang on 2/7/18.

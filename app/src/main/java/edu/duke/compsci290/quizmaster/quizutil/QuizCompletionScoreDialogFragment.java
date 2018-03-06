@@ -1,4 +1,4 @@
-package edu.duke.compsci290.quizmaster;
+package edu.duke.compsci290.quizmaster.quizutil;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -9,6 +9,9 @@ import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.widget.Button;
+
+import edu.duke.compsci290.quizmaster.MainActivity;
+import edu.duke.compsci290.quizmaster.R;
 
 /**
  * Created by mercyfang on 3/5/18.

@@ -1,4 +1,4 @@
-package edu.duke.compsci290.quizmaster;
+package edu.duke.compsci290.quizmaster.quizcomponent;
 
 import android.util.Log;
 

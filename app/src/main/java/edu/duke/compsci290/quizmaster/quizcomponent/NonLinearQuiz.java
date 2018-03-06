@@ -1,9 +1,11 @@
-package edu.duke.compsci290.quizmaster;
+package edu.duke.compsci290.quizmaster.quizcomponent;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Iterator;
+
+import edu.duke.compsci290.quizmaster.quizutil.QuizResultException;
 
 /**
  * Created by mercyfang on 2/21/18.

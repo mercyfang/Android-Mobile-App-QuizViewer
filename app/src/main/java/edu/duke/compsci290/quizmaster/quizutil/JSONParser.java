@@ -1,4 +1,4 @@
-package edu.duke.compsci290.quizmaster;
+package edu.duke.compsci290.quizmaster.quizutil;
 
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -9,6 +9,10 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+
+import edu.duke.compsci290.quizmaster.quizcomponent.Answer;
+import edu.duke.compsci290.quizmaster.quizcomponent.Question;
+import edu.duke.compsci290.quizmaster.quizcomponent.Quiz;
 
 /**
  * Created by mercyfang on 2/7/18.

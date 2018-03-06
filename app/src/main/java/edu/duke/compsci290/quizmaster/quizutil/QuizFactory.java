@@ -1,8 +1,14 @@
-package edu.duke.compsci290.quizmaster;
+package edu.duke.compsci290.quizmaster.quizutil;
 
 import android.util.Log;
 
 import java.util.HashSet;
+
+import edu.duke.compsci290.quizmaster.quizcomponent.LinearQuiz;
+import edu.duke.compsci290.quizmaster.quizcomponent.NonLinearQuiz;
+import edu.duke.compsci290.quizmaster.quizcomponent.PersonalityQuiz;
+import edu.duke.compsci290.quizmaster.quizcomponent.Question;
+import edu.duke.compsci290.quizmaster.quizcomponent.Quiz;
 
 /**
  * Created by mercyfang on 2/11/18.

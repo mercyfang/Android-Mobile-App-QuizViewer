@@ -5,6 +5,12 @@ import org.json.JSONObject;
 import org.junit.Before;
 import org.junit.Test;
 
+import edu.duke.compsci290.quizmaster.quizcomponent.LinearQuiz;
+import edu.duke.compsci290.quizmaster.quizcomponent.NonLinearQuiz;
+import edu.duke.compsci290.quizmaster.quizcomponent.PersonalityQuiz;
+import edu.duke.compsci290.quizmaster.quizcomponent.Quiz;
+import edu.duke.compsci290.quizmaster.quizutil.JSONParser;
+
 import static org.junit.Assert.assertTrue;
 
 /**

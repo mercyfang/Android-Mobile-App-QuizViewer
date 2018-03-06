@@ -7,6 +7,10 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
+import edu.duke.compsci290.quizmaster.quizcomponent.Answer;
+import edu.duke.compsci290.quizmaster.quizcomponent.LinearQuiz;
+import edu.duke.compsci290.quizmaster.quizcomponent.Question;
+
 import static junit.framework.Assert.assertEquals;
 
 /**

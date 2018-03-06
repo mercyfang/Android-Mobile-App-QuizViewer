@@ -14,6 +14,13 @@ import android.widget.Toast;
 
 import java.net.MalformedURLException;
 
+import edu.duke.compsci290.quizmaster.quizcomponent.NonLinearQuiz;
+import edu.duke.compsci290.quizmaster.quizcomponent.Question;
+import edu.duke.compsci290.quizmaster.quizcomponent.Quiz;
+import edu.duke.compsci290.quizmaster.quizutil.JSONParser;
+import edu.duke.compsci290.quizmaster.quizutil.JSONQuizGenerator;
+import edu.duke.compsci290.quizmaster.quizutil.QuizResultException;
+
 public class QuizScreen extends AppCompatActivity {
     private Button mNextButton;
     private Quiz mQuiz;

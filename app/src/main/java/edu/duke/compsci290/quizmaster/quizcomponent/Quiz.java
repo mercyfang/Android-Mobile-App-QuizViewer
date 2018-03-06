@@ -1,4 +1,6 @@
-package edu.duke.compsci290.quizmaster;
+package edu.duke.compsci290.quizmaster.quizcomponent;
+
+import edu.duke.compsci290.quizmaster.quizutil.QuizResultException;
 
 /**
  * Created by mercyfang on 2/9/18.

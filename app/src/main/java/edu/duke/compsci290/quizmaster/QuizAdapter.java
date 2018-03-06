@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import edu.duke.compsci290.quizmaster.quizutil.QuizCompletionScoreDialogFragment;
+
 /**
  * Created by barbaraxiong on 3/3/18.
  */

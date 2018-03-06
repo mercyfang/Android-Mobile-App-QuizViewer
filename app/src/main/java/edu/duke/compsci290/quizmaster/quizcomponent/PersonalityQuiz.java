@@ -1,4 +1,4 @@
-package edu.duke.compsci290.quizmaster;
+package edu.duke.compsci290.quizmaster.quizcomponent;
 
 import android.annotation.TargetApi;
 
@@ -9,6 +9,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+
+import edu.duke.compsci290.quizmaster.quizutil.QuizResultException;
 
 /**
  * Created by mercyfang on 2/9/18.
