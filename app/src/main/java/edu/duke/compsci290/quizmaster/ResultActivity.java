@@ -42,6 +42,13 @@ public class ResultActivity extends AppCompatActivity {
         super.onPause();
     }
 
+    // Goes back to MainActivity when back button is pressed.
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        getApplicationContext().startActivity(intent);
+    }
+
     // Changes quizzes scores in SharedPreferences.
     private void changeQuizCompletion(String quizScore, String quizName) {
         SharedPreferences prefs = getSharedPreferences("QuizScreen", MODE_PRIVATE);
