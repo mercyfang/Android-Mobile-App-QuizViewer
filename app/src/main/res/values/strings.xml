@@ -265,48 +265,4 @@
             ]
         }
     </string>
-
-    <string-array name="new_quiz_names">
-        <item>The_2018_Oscars_Quiz</item>
-        <item>What_Kind_Of_Color_Is_You</item>
-    </string-array>
-
-    <string-array name="new_quiz_types">
-        <item>linear</item>
-        <item>personality</item>
-    </string-array>
-
-    <string name="The_2018_Oscars_Quiz">
-        {
-        \"quizName\": \"The_2018_Oscars_Quiz\",
-        \"questions\":
-            [
-            {
-            \"question\": \"Which movie won best picture?\",
-            \"answers\" : [\"The Shape of Water\", \"Dunkirk\", \"Call Me By Your name\", \"Get Out\", \"Three Billboards Outside Ebbing, Missouri\"],
-            \"attributes\" : [\"correct\", \"incorrect\", \"incorrect\", \"incorrect\", \"incorrect\"]
-            },
-            {
-            \"question\": \"Which actor won best actor?\",
-            \"answers\" : [\"Gary Oldman\", \"Timothee Chalamet", \"Denzel Washington\", \"Daniel Day-Lewis\", \"Daniel Kaluuya\"],
-            \"attributes\" : [\"correct\", \"incorrect\", \"incorrect\", \"incorrect\", \"incorrect\"]
-            }
-            ]
-        }
-    </string>
-
-    <string name="What_Kind_Of_Color_Is_You">
-        {
-        \"quizName\": \"What_Kind_Of_Color_Is_You\",
-        \"questions\":
-            [
-            {
-            \"question\": \"What is your favorite color\",
-            \"answers\" : [\"Pink\", \"Blue\", \"Black\", \"Red\", \"Purple\"],
-            \"attributes\" : [\"Pink\", \"Blue\", \"Black\", \"Red\", \"Purple\"]
-            }
-            ]
-        }
-    </string>
-
 </resources>

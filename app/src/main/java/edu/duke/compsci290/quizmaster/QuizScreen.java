@@ -56,8 +56,15 @@ public class QuizScreen extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        String json = mJSONQuizGenerator.getJSON(this);
-
+        String json = "";
+        try {
+            json = mJSONQuizGenerator.getJSON(this);
+        } catch (Exception e) {
+            // Fails to find the quiz, return back to MainActivity.
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            getApplicationContext().startActivity(intent);
+            return;
+        }
         mQuiz = JSONParser.parse(json, mQuizType);
         mQuizName = mQuiz.getQuizName();
         mQuestionView = this.findViewById(R.id.question_text_view);

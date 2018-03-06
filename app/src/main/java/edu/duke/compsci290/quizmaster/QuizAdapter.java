@@ -40,7 +40,6 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder>{
         this.mQuizzes = quizzes;
         this.mQuizTypes = quizTypes;
         this.mContext = context;
-        // We store quizzes completion score using "-1" as incomplete and join the scores using ';'.
     }
 
     @Override
@@ -99,6 +98,7 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder>{
 
         SharedPreferences prefs = MainActivity.mainActivity.getSharedPreferences(
                 "QuizScreen", MainActivity.MODE_PRIVATE);
+        // We store quizzes completion score using "-1" as incomplete and join the scores using ';'.
         String score = prefs
                 .getString("quiz_completion", "").split(";")[position];
         if (score.equals("-1")) {
