@@ -6,7 +6,9 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.widget.Button;
 
 /**
  * Created by mercyfang on 3/5/18.
@@ -46,7 +48,7 @@ public class QuizCompletionScoreDialogFragment extends DialogFragment {
         // If quiz is incomplete, no negative Button is set.
         if (getArguments().getString("title").equals(getString(R.string.complete))) {
             builder.setNegativeButton(
-                    "Set to incomplete", new DialogInterface.OnClickListener() {
+                    "set to incomplete", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int id) {
                     // Clears the quiz completion score for current quiz in SharedPreferences.
@@ -54,13 +56,24 @@ public class QuizCompletionScoreDialogFragment extends DialogFragment {
                             .getSharedPreferences("QuizScreen", MainActivity.MODE_PRIVATE);
                     SharedPreferences.Editor editor = prefs.edit();
 
+                    int quizIndex = getArguments().getInt("index");
                     String[] quizCompletionScoreArray =
                             prefs.getString("quiz_completion", "").split(";");
-                    quizCompletionScoreArray[getArguments().getInt("index")] = "-1";
+                    quizCompletionScoreArray[quizIndex] = "-1";
                     editor.putString(
                             "quiz_completion",
                             TextUtils.join(";", quizCompletionScoreArray));
                     editor.commit();
+
+                    // Resets quizCompletion button text to "Incomplete".
+                    RecyclerView recyclerView =
+                            MainActivity.mainActivity.findViewById(
+                                    R.id.activity_main_recycler_view);
+                    Button quizCompletionButton = recyclerView
+                            .findViewHolderForAdapterPosition(quizIndex)
+                            .itemView
+                            .findViewById(R.id.quiz_completion_button);
+                    quizCompletionButton.setText(getString(R.string.incomplete));
                 }
             });
         }
