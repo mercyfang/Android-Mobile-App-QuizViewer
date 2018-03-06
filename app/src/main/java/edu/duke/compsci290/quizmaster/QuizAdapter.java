@@ -2,6 +2,7 @@ package edu.duke.compsci290.quizmaster;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +18,6 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder>{
     private Context mContext;
     private String[] mQuizzes;
     private String[] mQuizTypes;
-    private String[] mQuizzesCompletion;
 
     private final String complete = MainActivity.mainActivity.getString(R.string.complete);
     private final String incomplete = MainActivity.mainActivity.getString(R.string.incomplete);
@@ -36,13 +36,11 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder>{
         }
     }
 
-    public QuizAdapter(
-            final Context context, String[] quizzes, String[] quizTypes, String quizzesCompletion) {
+    public QuizAdapter(final Context context, String[] quizzes, String[] quizTypes) {
         this.mQuizzes = quizzes;
         this.mQuizTypes = quizTypes;
         this.mContext = context;
-        // We store quizzes completion score using -1 as incomplete and join the scores using ';'.
-        mQuizzesCompletion = quizzesCompletion.split(";");
+        // We store quizzes completion score using "-1" as incomplete and join the scores using ';'.
     }
 
     @Override
@@ -79,7 +77,11 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder>{
         mQuizCompletionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String score = mQuizzesCompletion[quizHolder.getAdapterPosition()];
+                SharedPreferences prefs = MainActivity.mainActivity.getSharedPreferences(
+                        "QuizScreen", MainActivity.MODE_PRIVATE);
+                String score = prefs.getString("quiz_completion", "")
+                        .split(";")[quizHolder.getAdapterPosition()];
+
                 String title = score.equals("-1") ? incomplete : complete;
                 QuizCompletionScoreDialogFragment dialogFragment =
                         QuizCompletionScoreDialogFragment.newInstance(
@@ -94,7 +96,12 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.mQuizButton.setText(mQuizzes[position].replaceAll("_", " "));
-        if (mQuizzesCompletion[position].equals("-1")) {
+
+        SharedPreferences prefs = MainActivity.mainActivity.getSharedPreferences(
+                "QuizScreen", MainActivity.MODE_PRIVATE);
+        String score = prefs
+                .getString("quiz_completion", "").split(";")[position];
+        if (score.equals("-1")) {
             holder.mQuizCompletionButton.setText(incomplete);
         } else {
             holder.mQuizCompletionButton.setText(complete);

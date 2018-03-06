@@ -34,6 +34,8 @@ public class QuizCompletionScoreDialogFragment extends DialogFragment {
         // its scores information.
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.mainActivity);
         String score = getArguments().getString("message");
+
+        // Each quiz might have a set of scores in history separated by "\n".
         score = score.equals("-1") ? "No Score" : score;
         builder.setMessage(score)
                 .setTitle(getArguments().getString("title"));

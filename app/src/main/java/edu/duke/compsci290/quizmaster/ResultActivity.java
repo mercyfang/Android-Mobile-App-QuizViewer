@@ -57,7 +57,10 @@ public class ResultActivity extends AppCompatActivity {
         quizName = TextUtils.join("_", quizName.split(" "));
         for (int i = 0; i < quizNames.length; i++) {
             if (quizNames[i].equals(quizName)) {
-                quizCompletionArray[i] = quizScore;
+                // Adds new quiz score to the existed set of scores separated by "\n".
+                String quizCompletionScore = quizCompletionArray[i];
+                quizCompletionArray[i] = quizCompletionScore.equals("-1")
+                        ? quizScore : quizCompletionScore + "\n" + quizScore;
                 break;
             }
         }
