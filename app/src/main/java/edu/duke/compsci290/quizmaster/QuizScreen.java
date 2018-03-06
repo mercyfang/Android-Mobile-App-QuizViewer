@@ -134,6 +134,12 @@ public class QuizScreen extends AppCompatActivity {
         super.onStart();
     }
 
+    // Disables back button in the middle of a quiz.
+    @Override
+    public void onBackPressed() {
+        // Do nothing.
+    }
+
     private void nextQuestion() {
         updateScoreAndToastMessage();
         mChoices.clearCheck();
