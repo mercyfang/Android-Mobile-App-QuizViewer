@@ -9,20 +9,20 @@
 
     <string-array name="quiz_names">
         <item>How_Much_Do_You_Know_About_The_Number_2</item>
-
         <item>The_2017_Oscars_Quiz</item>
         <item>Which_Ice_Cream_Flavor_Are_You</item>
         <item>Which_Game_of_Thrones_House_Would_You_Be_In</item>
         <item>Country_Capitals_Quiz</item>
+        <item>US_Presidents_Quiz</item>
     </string-array>
 
     <string-array name="quiz_types">
         <item>linear</item>
-
         <item>linear</item>
         <item>personality</item>
         <item>personality</item>
         <item>nonlinear</item>
+        <item>linear</item>
     </string-array>
 
     <string name="How_Much_Do_You_Know_About_The_Number_2">
