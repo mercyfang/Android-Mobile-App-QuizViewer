@@ -21,15 +21,13 @@ public class PersonalityQuizUnitTest {
     private PersonalityQuiz mPersonalityQuiz;
     private ArrayList<Question> mQuestions;
     private Question mQuestion;
-    private Iterable<Answer> mAnswers;
     private String mAnswer1 = "answer 1";
-    private String mAttribute1 = "correct";
+    private String mAttribute1 = "attribute 1";
     private String mAnswer2 = "answer 2";
-    private String mAttribute2 = "incorrect";
+    private String mAttribute2 = "attribute 2";
     private String mQuest = "Test Question 1";
     private String mQuizName = "quiz name";
     private int mCurrentQuestion;
-    private int mScore;
     private HashSet<String> mAttributes;
 
     @Before
@@ -37,13 +35,11 @@ public class PersonalityQuizUnitTest {
         List<Answer> answers = new ArrayList<>();
         answers.add(new Answer(mAnswer1, mAttribute1));
         answers.add(new Answer(mAnswer2, mAttribute2));
-        mAnswers = answers;
         mQuestion = new Question(mQuest, answers);
-        mQuestions = new ArrayList<Question>();
+        mQuestions = new ArrayList<>();
         mQuestions.add(mQuestion);
         mCurrentQuestion = 0;
-        mScore = 0;
-        mAttributes = new HashSet<String>();
+        mAttributes = new HashSet<>();
         mAttributes.add(mAttribute1);
         mAttributes.add(mAttribute2);
         mPersonalityQuiz = new PersonalityQuiz(
@@ -59,17 +55,17 @@ public class PersonalityQuizUnitTest {
     }
 
     @Test
-    public void getCurrentQuestionIndex() throws Exception{
+    public void getCurrentQuestionIndex() throws Exception {
         assertEquals(mPersonalityQuiz.getCurrentQuestionIndex(), mCurrentQuestion);
     }
 
     @Test
-    public void getQuizName() throws Exception{
+    public void getQuizName() throws Exception {
         assertEquals(mPersonalityQuiz.getQuizName(), mQuizName);
     }
 
     @Test
-    public void getQuestions() throws Exception{
+    public void getQuestions() throws Exception {
         assertEquals(mPersonalityQuiz.getQuestions(), mQuestions);
     }
 
@@ -81,7 +77,13 @@ public class PersonalityQuizUnitTest {
     }
 
     @Test
-    public void getQuestionAmount() throws Exception{
+    public void getQuestionAmount() throws Exception {
         assertEquals(mPersonalityQuiz.getQuestionAmount(), mQuestions.size());
+    }
+
+    @Test
+    public void processResult() throws Exception {
+        mQuestion.processChosen(mAnswer1);
+        assertEquals(mPersonalityQuiz.processResult(), mAttribute1);
     }
 }

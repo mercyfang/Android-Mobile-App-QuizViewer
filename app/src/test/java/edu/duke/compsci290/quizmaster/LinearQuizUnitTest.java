@@ -21,7 +21,6 @@ public class LinearQuizUnitTest {
     private LinearQuiz mLinearQuiz;
     private ArrayList<Question> mQuestions;
     private Question mQuestion;
-    private Iterable<Answer> mAnswers;
     private String mAnswer1 = "answer 1";
     private String mAttribute1 = "correct";
     private String mAnswer2 = "answer 2";
@@ -37,7 +36,6 @@ public class LinearQuizUnitTest {
         List<Answer> answers = new ArrayList<>();
         answers.add(new Answer(mAnswer1, mAttribute1));
         answers.add(new Answer(mAnswer2, mAttribute2));
-        mAnswers = answers;
         mQuestion = new Question(mQuest, answers);
         mQuestions = new ArrayList<>();
         mQuestions.add(mQuestion);
@@ -59,17 +57,17 @@ public class LinearQuizUnitTest {
     }
 
     @Test
-    public void getCurrentQuestionIndex() throws Exception{
+    public void getCurrentQuestionIndex() throws Exception {
         assertEquals(mLinearQuiz.getCurrentQuestionIndex(), mCurrentQuestion);
     }
 
     @Test
-    public void getQuizName() throws Exception{
+    public void getQuizName() throws Exception {
         assertEquals(mLinearQuiz.getQuizName(), mQuizName);
     }
 
     @Test
-    public void getQuestions() throws Exception{
+    public void getQuestions() throws Exception {
         assertEquals(mLinearQuiz.getQuestions(), mQuestions);
     }
 
@@ -81,19 +79,19 @@ public class LinearQuizUnitTest {
     }
 
     @Test
-    public void getQuestionAmount() throws Exception{
+    public void getQuestionAmount() throws Exception {
         assertEquals(mLinearQuiz.getQuestionAmount(), mQuestions.size());
     }
 
     @Test
-    public void updateScore() throws Exception{
+    public void updateScore() throws Exception {
         int currentScore = mScore;
         mLinearQuiz.updateScore();
         assertEquals(Integer.parseInt(mLinearQuiz.processResult()), currentScore + 1);
     }
 
     @Test
-    public void processResult() throws Exception{
+    public void processResult() throws Exception {
         assertEquals(mLinearQuiz.processResult(), String.valueOf(mScore));
     }
 }

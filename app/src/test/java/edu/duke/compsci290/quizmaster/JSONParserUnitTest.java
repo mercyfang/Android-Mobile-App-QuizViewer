@@ -18,9 +18,9 @@ import static org.junit.Assert.assertTrue;
  */
 
 public class JSONParserUnitTest {
-    private String linearQuizType = "linear";
-    private String nonLinearQuizType = "nonlinear";
-    private String personalityQuizType = "personality";
+    private final String linearQuizType = "linear";
+    private final String nonLinearQuizType = "nonlinear";
+    private final String personalityQuizType = "personality";
     private JSONObject question;
 
     @Before
@@ -65,7 +65,7 @@ public class JSONParserUnitTest {
     @Test
     public void parseNonLinearQuiz() throws Exception {
         JSONObject quizJSONObj = new JSONObject();
-        quizJSONObj.put("quizName", "Linear Quiz Test");
+        quizJSONObj.put("quizName", "Non Linear Quiz Test");
         JSONArray questions = new JSONArray();
         question.put("difficulty", "easy");
         questions.put(question);
@@ -74,5 +74,4 @@ public class JSONParserUnitTest {
         Quiz quiz = JSONParser.parse(quizJSONObj.toString(), nonLinearQuizType);
         assertTrue(quiz instanceof NonLinearQuiz);
     }
-
 }

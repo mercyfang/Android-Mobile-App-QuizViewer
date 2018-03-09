@@ -21,7 +21,6 @@ public class NonlinearQuizUnitTest {
     private NonLinearQuiz mNonlinearQuiz;
     private ArrayList<Question> mQuestions;
     private Question mQuestion;
-    private Iterable<Answer> mAnswers;
     private String mAnswer1 = "answer 1";
     private String mAttribute1 = "correct";
     private String mAnswer2 = "answer 2";
@@ -37,13 +36,12 @@ public class NonlinearQuizUnitTest {
         List<Answer> answers = new ArrayList<>();
         answers.add(new Answer(mAnswer1, mAttribute1));
         answers.add(new Answer(mAnswer2, mAttribute2));
-        mAnswers = answers;
         mQuestion = new Question(mQuest, answers);
-        mQuestions = new ArrayList<Question>();
+        mQuestions = new ArrayList<>();
         mQuestions.add(mQuestion);
         mCurrentQuestion = 0;
         mScore = 0;
-        mAttributes = new HashSet<String>();
+        mAttributes = new HashSet<>();
         mAttributes.add(mAttribute1);
         mAttributes.add(mAttribute2);
         mNonlinearQuiz = new NonLinearQuiz(
@@ -59,12 +57,12 @@ public class NonlinearQuizUnitTest {
     }
 
     @Test
-    public void getQuizName() throws Exception{
+    public void getQuizName() throws Exception {
         assertEquals(mNonlinearQuiz.getQuizName(), mQuizName);
     }
 
     @Test
-    public void getQuestions() throws Exception{
+    public void getQuestions() throws Exception {
         assertEquals(mNonlinearQuiz.getQuestions(), mQuestions);
     }
 
@@ -76,19 +74,19 @@ public class NonlinearQuizUnitTest {
     }
 
     @Test
-    public void getQuestionAmount() throws Exception{
+    public void getQuestionAmount() throws Exception {
         assertEquals(mNonlinearQuiz.getQuestionAmount(), mQuestions.size());
     }
 
     @Test
-    public void updateScore() throws Exception{
+    public void updateScore() throws Exception {
         int currentScore = mScore;
         mNonlinearQuiz.updateScore();
         assertEquals(Integer.parseInt(mNonlinearQuiz.processResult()), currentScore + 1);
     }
 
     @Test
-    public void processResult() throws Exception{
+    public void processResult() throws Exception {
         assertEquals(mNonlinearQuiz.processResult(), String.valueOf(mScore));
     }
 }
