@@ -105,12 +105,11 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder>{
         String quizType = mQuizTypes[position];
         if (quizType.equals("linear")) {
             holder.mQuizButton.setBackgroundColor(Color.parseColor("#B3A4FF"));
-
         }
-        if (quizType.equals("personality")) {
+        else if (quizType.equals("personality")) {
             holder.mQuizButton.setBackgroundColor(Color.parseColor("#FF8DD9"));
         }
-        if (quizType.equals("nonlinear")) {
+        else if (quizType.equals("nonlinear")) {
             holder.mQuizButton.setBackgroundColor(Color.parseColor("#FFF98D"));
         }
 

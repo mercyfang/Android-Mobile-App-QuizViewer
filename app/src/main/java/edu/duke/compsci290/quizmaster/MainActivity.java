@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             editor.commit();
         }
 
-        // set up recycler view
+        // sets up recycler view
         RecyclerView rv = findViewById(R.id.activity_main_recycler_view);
         rv.setAdapter(new QuizAdapter(this, quizzes, quizTypes));
         rv.setLayoutManager(new LinearLayoutManager(this));
