@@ -24,11 +24,6 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder>{
 
     private final String complete = MainActivity.mainActivity.getString(R.string.complete);
     private final String incomplete = MainActivity.mainActivity.getString(R.string.incomplete);
-    private Context resources;
-
-    public Context getResources() {
-        return resources;
-    }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         LinearLayout mLinearLayout;
@@ -105,11 +100,9 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder>{
         String quizType = mQuizTypes[position];
         if (quizType.equals("linear")) {
             holder.mQuizButton.setBackgroundColor(Color.parseColor("#B3A4FF"));
-        }
-        else if (quizType.equals("personality")) {
+        } else if (quizType.equals("personality")) {
             holder.mQuizButton.setBackgroundColor(Color.parseColor("#FF8DD9"));
-        }
-        else if (quizType.equals("nonlinear")) {
+        } else if (quizType.equals("nonlinear")) {
             holder.mQuizButton.setBackgroundColor(Color.parseColor("#FFF98D"));
         }
 
@@ -123,7 +116,6 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder>{
         if (score.equals("-1")) {
             holder.mQuizCompletionButton.setText(incomplete);
             holder.mQuizCompletionButton.setBackgroundColor(Color.parseColor("#FF8A8A"));
-
         } else {
             holder.mQuizCompletionButton.setText(complete);
             holder.mQuizCompletionButton.setBackgroundColor(Color.parseColor("#8AFFC4"));
