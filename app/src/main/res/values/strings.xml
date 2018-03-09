@@ -9,6 +9,7 @@
 
     <string-array name="quiz_names">
         <item>How_Much_Do_You_Know_About_The_Number_2</item>
+
         <item>The_2017_Oscars_Quiz</item>
         <item>Which_Ice_Cream_Flavor_Are_You</item>
         <item>Which_Game_of_Thrones_House_Would_You_Be_In</item>
@@ -17,6 +18,7 @@
 
     <string-array name="quiz_types">
         <item>linear</item>
+
         <item>linear</item>
         <item>personality</item>
         <item>personality</item>
@@ -52,6 +54,40 @@
             \"question\": \"What is log base 2 of 2\",
             \"answers\" : [\"1\", \"2\", \"3\", \"4\", \" 5\"],
             \"attributes\" : [\"correct\", \"incorrect\", \"incorrect\", \"incorrect\", \"incorrect\"]
+            }
+            ]
+        }
+    </string>
+
+    <string name="US_Presidents_Quiz">
+        {
+        \"quizName\": \"US_Presidents_Quiz\",
+        \"questions\":
+            [
+            {
+            \"question\": \"Who had the shortest presidential term\",
+            \"answers\" : [\"George Washington\", \"Abraham Lincoln\", \"William McKinley\", \"William Henry Harrison\", \"John F Kennedy\"],
+            \"attributes\" : [\"incorrect\", \"incorrect\", \"incorrect\", \"correct\", \"incorrect\"]
+            },
+            {
+            \"question\": \"Who was the president during Americas first war as an independent country\",
+            \"answers\" : [\"Jefferson\", \"Madison\", \"Monroe\", \"Quincy Adams\", \"Jackson\"],
+            \"attributes\" : [\"incorrect\", \"incorrect\", \"correct\", \"incorrect\", \"incorrect\"]
+            },
+            {
+            \"question\": \"Who was president at the start of the Great Depression\",
+            \"answers\" : [\"Wilson\", \"Hoover\", \"FDR\", \"Coolidge\", \"Taft\"],
+            \"attributes\" : [\"incorrect\", \"correct\", \"incorrect\", \"incorrect\", \"incorrect\"]
+            },
+            {
+            \"question\": \"Who was president during the Louisiana Purchase\",
+            \"answers\" : [\"Jefferson\", \"Adams\", \"Madison\", \"Monroe\", \"Washington\"],
+            \"attributes\" : [\"correct\", \"incorrect\", \"incorrect\", \"incorrect\", \"incorrect\"]
+            },
+            {
+            \"question\": \"Which of these presidents was not assassinated?\",
+            \"answers\" : [\"JFK\", \"McKinley\", \"Lincoln\", \"Garfield\", \"Hayes\"],
+            \"attributes\" : [\"incorrect\", \"incorrect\", \"incorrect\", \"incorrect\", \"correct\"]
             }
             ]
         }
