@@ -44,6 +44,7 @@ public class NonlinearQuizUnitTest {
         mAttributes = new HashSet<>();
         mAttributes.add(mAttribute1);
         mAttributes.add(mAttribute2);
+        mQuestion.setDifficulty("easy");
         mNonlinearQuiz = new NonLinearQuiz(
                 mQuestions.toArray(new Question[mQuestions.size()]), mQuizName, mAttributes);
     }
