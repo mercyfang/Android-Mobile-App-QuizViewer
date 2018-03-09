@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
+
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
     public static MainActivity mainActivity;
@@ -18,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Restores state for QuizScreen if present.
         SharedPreferences prefs = getSharedPreferences("QuizScreen", MODE_PRIVATE);
+
         String quizName = prefs.getString("quiz_name_key", "");
         String quizType = prefs.getString("quiz_type_key", "");
         String quizzesCompletion = prefs.getString("quiz_completion", "");
@@ -41,6 +45,26 @@ public class MainActivity extends AppCompatActivity {
             quizzesCompletion = quizzesCompletion.substring(0, quizzesCompletion.length() - 1);
 
             // Saves quiz completion scores in SharedPreferences the first time.
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString("quiz_completion", quizzesCompletion);
+            editor.commit();
+        } else if (quizzesCompletion.split(";").length < quizzes.length) {
+            // New quiz is added to JSON but the score is not yet saved in SharedPreferences.
+            quizzesCompletion += ";";
+            for (int i = 0; i <= quizzes.length - quizzesCompletion.split(";").length; i++) {
+                quizzesCompletion += "-1;";
+            }
+            quizzesCompletion = quizzesCompletion.substring(0, quizzesCompletion.length() - 1);
+
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString("quiz_completion", quizzesCompletion);
+            editor.commit();
+        } else if (quizzesCompletion.split(";").length > quizzes.length) {
+            // Some quizzes in JSON are deleted.
+            String[] quizzesCompletionArray =
+                    Arrays.copyOfRange(quizzesCompletion.split(";"), 0, quizzes.length);
+            quizzesCompletion = TextUtils.join(";", quizzesCompletionArray);
+
             SharedPreferences.Editor editor = prefs.edit();
             editor.putString("quiz_completion", quizzesCompletion);
             editor.commit();
