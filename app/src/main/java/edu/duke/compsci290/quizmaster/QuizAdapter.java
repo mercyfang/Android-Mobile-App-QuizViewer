@@ -94,7 +94,6 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder>{
             }
         });
 
-
         return quizHolder;
     }
 
@@ -118,10 +117,8 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder>{
                 .getString("quiz_completion", "").split(";")[position];
         if (score.equals("-1")) {
             holder.mQuizCompletionButton.setText(incomplete);
-            holder.mQuizCompletionButton.setBackgroundColor(Color.parseColor("#FF8A8A"));
         } else {
             holder.mQuizCompletionButton.setText(complete);
-            holder.mQuizCompletionButton.setBackgroundColor(Color.parseColor("#8AFFC4"));
         }
     }
 }
