@@ -29,6 +29,7 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder>{
         LinearLayout mLinearLayout;
         Button mQuizButton;
         Button mQuizCompletionButton;
+        ViewHolder quizHolder;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -92,6 +93,8 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder>{
                         MainActivity.mainActivity.getFragmentManager(),"quizCompletionDialog");
             }
         });
+
+
         return quizHolder;
     }
 
