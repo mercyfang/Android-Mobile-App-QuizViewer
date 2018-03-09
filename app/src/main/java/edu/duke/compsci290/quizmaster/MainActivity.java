@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     public static MainActivity mainActivity;
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
             editor.commit();
         }
 
+        // sets up recycler view
         RecyclerView rv = findViewById(R.id.activity_main_recycler_view);
         rv.setAdapter(new QuizAdapter(this, quizzes, quizTypes));
         rv.setLayoutManager(new LinearLayoutManager(this));
