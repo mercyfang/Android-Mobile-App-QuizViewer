@@ -82,6 +82,24 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder>{
             }
         });
 
+        mQuizCompletionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences prefs = MainActivity.mainActivity.getSharedPreferences(
+                        "QuizScreen", MainActivity.MODE_PRIVATE);
+                String score = prefs.getString("quiz_completion", "")
+                        .split(";")[quizHolder.getAdapterPosition()];
+
+                String title = score.equals("-1") ? incomplete : complete;
+                QuizCompletionScoreDialogFragment dialogFragment =
+                        QuizCompletionScoreDialogFragment.newInstance(
+                                score, title, quizHolder.getAdapterPosition());
+                dialogFragment.show(
+                        MainActivity.mainActivity.getFragmentManager(),"quizCompletionDialog");
+            }
+        });
+
+
         return quizHolder;
     }
 
